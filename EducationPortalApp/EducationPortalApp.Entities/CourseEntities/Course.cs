@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using EducationPortalApp.Entities.EnrollmentEntities;
+using System.ComponentModel.DataAnnotations;
 
 namespace EducationPortalApp.Entities.CourseEntities
 {
