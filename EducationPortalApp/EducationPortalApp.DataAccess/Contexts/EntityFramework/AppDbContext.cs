@@ -17,6 +17,7 @@ namespace EducationPortalApp.DataAccess.Contexts.EntityFramework
         public DbSet<Course> Courses { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<CourseContent> CourseContents { get; set; }
+        public DbSet<CourseContentType> CourseContentTypes { get; set; }
         public DbSet<Enrollment> Enrollments { get; set; }
         public DbSet<EnrollmentRequest> EnrollmentRequests { get; set; }
         public DbSet<Gender> Genders { get; set; }
@@ -25,6 +26,7 @@ namespace EducationPortalApp.DataAccess.Contexts.EntityFramework
         {
             builder.ApplyConfiguration(new GenderConfiguration());
             builder.ApplyConfiguration(new CourseConfiguration());
+            builder.ApplyConfiguration(new CourseContentConfiguration());
             base.OnModelCreating(builder);
         }
     }
