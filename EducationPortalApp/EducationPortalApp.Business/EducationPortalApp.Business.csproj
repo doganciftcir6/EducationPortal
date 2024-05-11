@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EducationPortalApp.DataAccess\EducationPortalApp.DataAccess.csproj" />
+    <ProjectReference Include="..\EducationPortalApp.Shared\EducationPortalApp.Shared.csproj" />
   </ItemGroup>
 
 </Project>
