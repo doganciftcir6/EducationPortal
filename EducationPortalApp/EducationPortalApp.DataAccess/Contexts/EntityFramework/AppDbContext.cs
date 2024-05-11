@@ -28,6 +28,7 @@ namespace EducationPortalApp.DataAccess.Contexts.EntityFramework
             builder.ApplyConfiguration(new CourseConfiguration());
             builder.ApplyConfiguration(new CourseContentConfiguration());
             builder.ApplyConfiguration(new CourseContentTypeConfiguration());
+            builder.ApplyConfiguration(new EnrollmentConfiguration());
             base.OnModelCreating(builder);
         }
     }

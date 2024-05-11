@@ -14,6 +14,9 @@ namespace EducationPortalApp.Entities.EnrollmentEntities
 
         public int CourseId { get; set; }
         public Course Course { get; set; }
-        public string Status { get; set; } 
+
+
+        public int EnrollmentRequestStatusId { get; set; }
+        public EnrollmentRequestStatus EnrollmentRequestStatus { get; set; }
     }
 }

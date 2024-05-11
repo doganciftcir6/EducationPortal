@@ -12,5 +12,6 @@ namespace EducationPortalApp.Entities.UserEntities
         public Gender Gender { get; set; }
 
         public List<Enrollment> Enrollments { get; set; }
+        public List<EnrollmentRequest> EnrollmentRequests { get; set; }
     }
 }
