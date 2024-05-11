@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F78CA1E8-0111-40D2-BFE7-BA2C226B25E3}|EducationPortalApp.Entities\\EducationPortalApp.Entities.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\educationportalapp.entities\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F78CA1E8-0111-40D2-BFE7-BA2C226B25E3}|EducationPortalApp.Entities\\EducationPortalApp.Entities.csproj|solutionrelative:educationportalapp.entities\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F78CA1E8-0111-40D2-BFE7-BA2C226B25E3}|EducationPortalApp.Entities\\EducationPortalApp.Entities.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\educationportalapp.entities\\courseentities\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F78CA1E8-0111-40D2-BFE7-BA2C226B25E3}|EducationPortalApp.Entities\\EducationPortalApp.Entities.csproj|solutionrelative:educationportalapp.entities\\courseentities\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -23,6 +27,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Category.cs",
+              "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Entities\\Category.cs",
+              "RelativeDocumentMoniker": "EducationPortalApp.Entities\\Category.cs",
+              "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Entities\\Category.cs",
+              "RelativeToolTip": "EducationPortalApp.Entities\\Category.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T10:53:41.907Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Course.cs",
               "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Entities\\CourseEntities\\Course.cs",
               "RelativeDocumentMoniker": "EducationPortalApp.Entities\\CourseEntities\\Course.cs",
@@ -35,7 +52,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "CourseContent.cs",
               "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Entities\\CourseEntities\\CourseContent.cs",
               "RelativeDocumentMoniker": "EducationPortalApp.Entities\\CourseEntities\\CourseContent.cs",
