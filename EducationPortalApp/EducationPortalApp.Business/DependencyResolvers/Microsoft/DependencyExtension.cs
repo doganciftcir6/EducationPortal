@@ -1,5 +1,7 @@
-﻿using EducationPortalApp.DataAccess.Contexts.EntityFramework;
+﻿using EducationPortalApp.Business.CustomDescriber;
+using EducationPortalApp.DataAccess.Contexts.EntityFramework;
 using EducationPortalApp.DataAccess.UnitOfWork;
+using EducationPortalApp.Entities.UserEntities;
 using EducationPortalApp.Shared.Utilities.Security;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -14,6 +16,17 @@ namespace EducationPortalApp.Business.DependencyResolvers.Microsoft
     {
         public static void AddDependencies(this IServiceCollection services, IConfiguration configuration)
         {
+            //Identity
+            services.AddIdentity<AppUser, AppRole>(opt =>
+            {
+                opt.Password.RequireDigit = true;
+                opt.Password.RequiredLength = 1;
+                opt.Password.RequireUppercase = true;
+                opt.Password.RequireLowercase = true;
+                opt.Password.RequireNonAlphanumeric = true;
+                opt.Lockout.MaxFailedAccessAttempts = 5;
+            }).AddErrorDescriber<CustomErrorDescriber>().AddEntityFrameworkStores<AppDbContext>();
+
             //Context
             services.AddDbContext<AppDbContext>(opt =>
             {

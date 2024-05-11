@@ -37,7 +37,7 @@ namespace EducationPortalApp.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("EducationPortalApp.Entities.CourseEntities.Course", b =>
@@ -84,7 +84,7 @@ namespace EducationPortalApp.DataAccess.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Courses");
+                    b.ToTable("Courses", (string)null);
                 });
 
             modelBuilder.Entity("EducationPortalApp.Entities.CourseEntities.CourseContent", b =>
@@ -119,7 +119,7 @@ namespace EducationPortalApp.DataAccess.Migrations
 
                     b.HasIndex("CourseId");
 
-                    b.ToTable("CourseContents");
+                    b.ToTable("CourseContents", (string)null);
                 });
 
             modelBuilder.Entity("EducationPortalApp.Entities.CourseEntities.CourseContentType", b =>
@@ -137,7 +137,7 @@ namespace EducationPortalApp.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CourseContentTypes");
+                    b.ToTable("CourseContentTypes", (string)null);
 
                     b.HasData(
                         new
@@ -175,7 +175,7 @@ namespace EducationPortalApp.DataAccess.Migrations
 
                     b.HasIndex("CourseId");
 
-                    b.ToTable("Enrollments");
+                    b.ToTable("Enrollments", (string)null);
                 });
 
             modelBuilder.Entity("EducationPortalApp.Entities.EnrollmentEntities.EnrollmentRequest", b =>
@@ -203,7 +203,7 @@ namespace EducationPortalApp.DataAccess.Migrations
 
                     b.HasIndex("EnrollmentRequestStatusId");
 
-                    b.ToTable("EnrollmentRequests");
+                    b.ToTable("EnrollmentRequests", (string)null);
                 });
 
             modelBuilder.Entity("EducationPortalApp.Entities.EnrollmentEntities.EnrollmentRequestStatus", b =>
@@ -221,7 +221,7 @@ namespace EducationPortalApp.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("EnrollmentRequestStatuses");
+                    b.ToTable("EnrollmentRequestStatuses", (string)null);
 
                     b.HasData(
                         new
@@ -360,7 +360,7 @@ namespace EducationPortalApp.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Genders");
+                    b.ToTable("Genders", (string)null);
 
                     b.HasData(
                         new
