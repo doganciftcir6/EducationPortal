@@ -12,4 +12,3 @@
         public const int FORBİDDEN = 403;
     }
 }
-}
