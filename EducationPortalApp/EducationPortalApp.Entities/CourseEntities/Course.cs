@@ -20,6 +20,7 @@ namespace EducationPortalApp.Entities.CourseEntities
         public Category Category { get; set; }
 
         public List<CourseContent> CourseContents { get; set; }
+        public List<Enrollment> Enrollments { get; set; }
         public List<EnrollmentRequest> EnrollmentRequests { get; set; }
     }
 }
