@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using EducationPortalApp.Entities.CourseEntities;
+using System.ComponentModel.DataAnnotations;
 
 namespace EducationPortalApp.Entities
 {
@@ -8,6 +9,6 @@ namespace EducationPortalApp.Entities
         public int Id { get; set; }
         public string CategoryName { get; set; }
 
-        public List<Category> Categories { get; set; }
+        public List<Course> Courses { get; set; }
     }
 }

@@ -24,6 +24,7 @@ namespace EducationPortalApp.DataAccess.Contexts.EntityFramework
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfiguration(new GenderConfiguration());
+            builder.ApplyConfiguration(new CourseConfiguration());
             base.OnModelCreating(builder);
         }
     }
