@@ -1,4 +1,5 @@
-﻿using EducationPortalApp.Entities;
+﻿using EducationPortalApp.DataAccess.Configurations;
+using EducationPortalApp.Entities;
 using EducationPortalApp.Entities.CourseEntities;
 using EducationPortalApp.Entities.EnrollmentEntities;
 using EducationPortalApp.Entities.UserEntities;
@@ -19,5 +20,11 @@ namespace EducationPortalApp.DataAccess.Contexts.EntityFramework
         public DbSet<Enrollment> Enrollments { get; set; }
         public DbSet<EnrollmentRequest> EnrollmentRequests { get; set; }
         public DbSet<Gender> Genders { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.ApplyConfiguration(new GenderConfiguration());
+            base.OnModelCreating(builder);
+        }
     }
 }
