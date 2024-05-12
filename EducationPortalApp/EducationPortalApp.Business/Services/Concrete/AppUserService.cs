@@ -8,7 +8,6 @@ using EducationPortalApp.Shared.Utilities.Response;
 using FluentValidation;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
 namespace EducationPortalApp.Business.Services.Concrete
 {
@@ -17,16 +16,14 @@ namespace EducationPortalApp.Business.Services.Concrete
         private readonly UserManager<AppUser> _userManager;
         private readonly RoleManager<AppRole> _roleManager;
         private readonly ISharedIdentityService _sharedIdentityService;
-        private readonly IConfiguration _configuration;
         private readonly IMapper _mapper;
         private readonly IValidator<AppUserChangePasswordDto> _changePasswordValidator;
         private readonly IValidator<RoleAssingSendDto> _roleAssingSendDto;
-        public AppUserService(UserManager<AppUser> userManager, RoleManager<AppRole> roleManager, ISharedIdentityService sharedIdentityService, IConfiguration configuration, IMapper mapper, IValidator<AppUserChangePasswordDto> changePasswordValidator, IValidator<RoleAssingSendDto> roleAssingSendDto)
+        public AppUserService(UserManager<AppUser> userManager, RoleManager<AppRole> roleManager, ISharedIdentityService sharedIdentityService, IMapper mapper, IValidator<AppUserChangePasswordDto> changePasswordValidator, IValidator<RoleAssingSendDto> roleAssingSendDto)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _sharedIdentityService = sharedIdentityService;
-            _configuration = configuration;
             _mapper = mapper;
             _changePasswordValidator = changePasswordValidator;
             _roleAssingSendDto = roleAssingSendDto;
