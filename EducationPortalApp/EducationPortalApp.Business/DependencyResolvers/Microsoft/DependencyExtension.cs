@@ -47,6 +47,7 @@ namespace EducationPortalApp.Business.DependencyResolvers.Microsoft
             services.AddScoped<IAppUserService, AppUserService>();
             services.AddScoped<IGenderService, GenderService>();
             services.AddScoped<ICourseContentTypeService, CourseContentTypeService>();
+            services.AddScoped<IEnrollmentRequestStatusService, EnrollmentRequestStatusService>();
 
             //FluentValidations
             services.AddScoped<IValidator<AppUserLoginDto>, AppUserLoginDtoValidator>();
