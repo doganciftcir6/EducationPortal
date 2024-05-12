@@ -1,9 +1,12 @@
 ﻿using EducationPortalApp.Business.CustomDescriber;
+using EducationPortalApp.Business.Services.Concrete;
+using EducationPortalApp.Business.Services.Interfaces;
 using EducationPortalApp.Business.ValidationRules.FluentValidation.AppUserValidations;
 using EducationPortalApp.DataAccess.Contexts.EntityFramework;
 using EducationPortalApp.DataAccess.UnitOfWork;
 using EducationPortalApp.Dtos.AppUserDtos;
 using EducationPortalApp.Entities.UserEntities;
+using EducationPortalApp.Shared.Services;
 using EducationPortalApp.Shared.Utilities.Security;
 using FluentValidation;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -39,6 +42,9 @@ namespace EducationPortalApp.Business.DependencyResolvers.Microsoft
 
             //Scopes,Singletons,Transients
             services.AddScoped<IUow, Uow>();
+            services.AddScoped<ISharedIdentityService, SharedIdentityService>();
+            services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<IAppUserService, AppUserService>();
 
             //FluentValidations
             services.AddScoped<IValidator<AppUserLoginDto>, AppUserLoginDtoValidator>();
