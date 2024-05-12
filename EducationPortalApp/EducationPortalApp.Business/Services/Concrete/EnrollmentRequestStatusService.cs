@@ -2,6 +2,7 @@
 using EducationPortalApp.Business.Services.Interfaces;
 using EducationPortalApp.DataAccess.UnitOfWork;
 using EducationPortalApp.Dtos.EnrollmentRequestStatusDtos;
+using EducationPortalApp.Entities.EnrollmentEntities;
 using EducationPortalApp.Shared.Utilities.Response;
 
 namespace EducationPortalApp.Business.Services.Concrete
@@ -18,7 +19,7 @@ namespace EducationPortalApp.Business.Services.Concrete
 
         public async Task<CustomResponse<IEnumerable<EnrollmentRequestStatusDto>>> GetEnrollmentRequestStatusesAsync()
         {
-            IEnumerable<EnrollmentRequestStatusDto> enrollmentRequestStatusDtos = _mapper.Map<IEnumerable<EnrollmentRequestStatusDto>>(await _uow.GetRepository<EnrollmentRequestStatusDto>().GetAllAsync());
+            IEnumerable<EnrollmentRequestStatusDto> enrollmentRequestStatusDtos = _mapper.Map<IEnumerable<EnrollmentRequestStatusDto>>(await _uow.GetRepository<EnrollmentRequestStatus>().GetAllAsync());
             return CustomResponse<IEnumerable<EnrollmentRequestStatusDto>>.Success(enrollmentRequestStatusDtos, ResponseStatusCode.OK);
         }
     }
