@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using System.Reflection;
 using System.Text;
 
 namespace EducationPortalApp.Business.DependencyResolvers.Microsoft
@@ -35,6 +36,9 @@ namespace EducationPortalApp.Business.DependencyResolvers.Microsoft
 
             //Scopes,Singletons,Transients
             services.AddScoped<IUow, Uow>();
+
+            //AutoMapper
+            services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
             //JWT register (Auto şema)
             services.AddAuthentication(opt =>
