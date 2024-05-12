@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{30FFECDF-799F-4C06-8417-4671D77F4B55}|EducationPortalApp.Business\\EducationPortalApp.Business.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\educationportalapp.business\\mapping\\automapper\\appuserprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30FFECDF-799F-4C06-8417-4671D77F4B55}|EducationPortalApp.Business\\EducationPortalApp.Business.csproj|solutionrelative:educationportalapp.business\\mapping\\automapper\\appuserprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{30FFECDF-799F-4C06-8417-4671D77F4B55}|EducationPortalApp.Business\\EducationPortalApp.Business.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\educationportalapp.business\\validationrules\\fluentvalidation\\appuservalidations\\appuserlogindtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30FFECDF-799F-4C06-8417-4671D77F4B55}|EducationPortalApp.Business\\EducationPortalApp.Business.csproj|solutionrelative:educationportalapp.business\\validationrules\\fluentvalidation\\appuservalidations\\appuserlogindtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{30FFECDF-799F-4C06-8417-4671D77F4B55}|EducationPortalApp.Business\\EducationPortalApp.Business.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\educationportalapp.business\\dependencyresolvers\\microsoft\\dependencyextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,14 +23,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AppUserProfile.cs",
-              "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Business\\Mapping\\AutoMapper\\AppUserProfile.cs",
-              "RelativeDocumentMoniker": "EducationPortalApp.Business\\Mapping\\AutoMapper\\AppUserProfile.cs",
-              "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Business\\Mapping\\AutoMapper\\AppUserProfile.cs",
-              "RelativeToolTip": "EducationPortalApp.Business\\Mapping\\AutoMapper\\AppUserProfile.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAfAAAA",
+              "Title": "AppUserLoginDtoValidator.cs",
+              "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Business\\ValidationRules\\FluentValidation\\AppUserValidations\\AppUserLoginDtoValidator.cs",
+              "RelativeDocumentMoniker": "EducationPortalApp.Business\\ValidationRules\\FluentValidation\\AppUserValidations\\AppUserLoginDtoValidator.cs",
+              "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Business\\ValidationRules\\FluentValidation\\AppUserValidations\\AppUserLoginDtoValidator.cs",
+              "RelativeToolTip": "EducationPortalApp.Business\\ValidationRules\\FluentValidation\\AppUserValidations\\AppUserLoginDtoValidator.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-12T11:49:20.64Z",
+              "WhenOpened": "2024-05-12T11:52:22.495Z",
               "EditorCaption": ""
             },
             {
@@ -41,7 +41,7 @@
               "RelativeDocumentMoniker": "EducationPortalApp.Business\\DependencyResolvers\\Microsoft\\DependencyExtension.cs",
               "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Business\\DependencyResolvers\\Microsoft\\DependencyExtension.cs",
               "RelativeToolTip": "EducationPortalApp.Business\\DependencyResolvers\\Microsoft\\DependencyExtension.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAAQwCgAAABEAAAA",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAQwCkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-12T11:47:18.252Z",
               "EditorCaption": ""
