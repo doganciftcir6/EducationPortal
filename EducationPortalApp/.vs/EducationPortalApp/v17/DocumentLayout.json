@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{30FFECDF-799F-4C06-8417-4671D77F4B55}|EducationPortalApp.Business\\EducationPortalApp.Business.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\educationportalapp.business\\validationrules\\fluentvalidation\\appuservalidations\\appuserregisterdtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30FFECDF-799F-4C06-8417-4671D77F4B55}|EducationPortalApp.Business\\EducationPortalApp.Business.csproj|solutionrelative:educationportalapp.business\\validationrules\\fluentvalidation\\appuservalidations\\appuserregisterdtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{30FFECDF-799F-4C06-8417-4671D77F4B55}|EducationPortalApp.Business\\EducationPortalApp.Business.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\educationportalapp.business\\validationrules\\fluentvalidation\\appuservalidations\\appuserchangepassworddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30FFECDF-799F-4C06-8417-4671D77F4B55}|EducationPortalApp.Business\\EducationPortalApp.Business.csproj|solutionrelative:educationportalapp.business\\validationrules\\fluentvalidation\\appuservalidations\\appuserchangepassworddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{30FFECDF-799F-4C06-8417-4671D77F4B55}|EducationPortalApp.Business\\EducationPortalApp.Business.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\educationportalapp.business\\dependencyresolvers\\microsoft\\dependencyextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{30FFECDF-799F-4C06-8417-4671D77F4B55}|EducationPortalApp.Business\\EducationPortalApp.Business.csproj|solutionrelative:educationportalapp.business\\dependencyresolvers\\microsoft\\dependencyextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30FFECDF-799F-4C06-8417-4671D77F4B55}|EducationPortalApp.Business\\EducationPortalApp.Business.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\educationportalapp.business\\validationrules\\fluentvalidation\\appuservalidations\\appuserlogindtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30FFECDF-799F-4C06-8417-4671D77F4B55}|EducationPortalApp.Business\\EducationPortalApp.Business.csproj|solutionrelative:educationportalapp.business\\validationrules\\fluentvalidation\\appuservalidations\\appuserlogindtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,27 +23,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AppUserRegisterDtoValidator.cs",
-              "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Business\\ValidationRules\\FluentValidation\\AppUserValidations\\AppUserRegisterDtoValidator.cs",
-              "RelativeDocumentMoniker": "EducationPortalApp.Business\\ValidationRules\\FluentValidation\\AppUserValidations\\AppUserRegisterDtoValidator.cs",
-              "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Business\\ValidationRules\\FluentValidation\\AppUserValidations\\AppUserRegisterDtoValidator.cs",
-              "RelativeToolTip": "EducationPortalApp.Business\\ValidationRules\\FluentValidation\\AppUserValidations\\AppUserRegisterDtoValidator.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAsAAAA",
+              "Title": "AppUserChangePasswordDtoValidator.cs",
+              "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Business\\ValidationRules\\FluentValidation\\AppUserValidations\\AppUserChangePasswordDtoValidator.cs",
+              "RelativeDocumentMoniker": "EducationPortalApp.Business\\ValidationRules\\FluentValidation\\AppUserValidations\\AppUserChangePasswordDtoValidator.cs",
+              "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Business\\ValidationRules\\FluentValidation\\AppUserValidations\\AppUserChangePasswordDtoValidator.cs",
+              "RelativeToolTip": "EducationPortalApp.Business\\ValidationRules\\FluentValidation\\AppUserValidations\\AppUserChangePasswordDtoValidator.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-12T11:54:09.174Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AppUserLoginDtoValidator.cs",
-              "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Business\\ValidationRules\\FluentValidation\\AppUserValidations\\AppUserLoginDtoValidator.cs",
-              "RelativeDocumentMoniker": "EducationPortalApp.Business\\ValidationRules\\FluentValidation\\AppUserValidations\\AppUserLoginDtoValidator.cs",
-              "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Business\\ValidationRules\\FluentValidation\\AppUserValidations\\AppUserLoginDtoValidator.cs",
-              "RelativeToolTip": "EducationPortalApp.Business\\ValidationRules\\FluentValidation\\AppUserValidations\\AppUserLoginDtoValidator.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-12T11:52:22.495Z",
+              "WhenOpened": "2024-05-12T11:57:52.619Z",
               "EditorCaption": ""
             },
             {
@@ -58,7 +41,7 @@
               "RelativeDocumentMoniker": "EducationPortalApp.Business\\DependencyResolvers\\Microsoft\\DependencyExtension.cs",
               "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Business\\DependencyResolvers\\Microsoft\\DependencyExtension.cs",
               "RelativeToolTip": "EducationPortalApp.Business\\DependencyResolvers\\Microsoft\\DependencyExtension.cs",
-              "ViewState": "AQIAAB0AAAAAAAAAAAAQwCgAAAAsAAAA",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAQwC0AAABqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-12T11:47:18.252Z",
               "EditorCaption": ""
