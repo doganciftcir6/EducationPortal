@@ -42,6 +42,7 @@ namespace EducationPortalApp.Business.DependencyResolvers.Microsoft
 
             //FluentValidations
             services.AddScoped<IValidator<AppUserLoginDto>, AppUserLoginDtoValidator>();
+            services.AddScoped<IValidator<AppUserRegisterDto>, AppUserRegisterDtoValidator>();
 
             //AutoMapper
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
