@@ -9,5 +9,6 @@ namespace EducationPortalApp.Business.Services.Interfaces
         Task<CustomResponse<NoContent>> InsertCourseContentAsync(CourseContentCreateDto courseContentCreateDto, CancellationToken cancellationToken);
         Task<CustomResponse<NoContent>> UpdateCourseContentAsync(CourseContentUpdateDto courseContentUpdateDto, CancellationToken cancellationToken);
         Task<CustomResponse<NoContent>> RemoveCourseContentAsync(int courseContentId);
+        Task<CustomResponse<NoContent>> UpdateCourseContentStatusAsync(int courseContentId, bool isChecked);
     }
 }

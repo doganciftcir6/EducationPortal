@@ -102,5 +102,25 @@ namespace EducationPortalApp.Business.Services.Concrete
             }
             return CustomResponse<NoContent>.Fail(validationResult.Errors.Select(x => x.ErrorMessage).ToList(), ResponseStatusCode.BAD_REQUEST);
         }
+
+        public async Task<CustomResponse<NoContent>> UpdateCourseContentStatusAsync(int courseContentId, bool isChecked)
+        {
+            var courseContent = await _uow.GetRepository<CourseContent>().AsNoTrackingGetByFilterAsync(x => x.Id == courseContentId);
+
+            if (isChecked)
+            {
+                //checkbox işaretlendiyse yani true geldiyse
+                courseContent.Status = true;
+            }
+            else
+            {
+                courseContent.Status = false;
+            }
+
+            _uow.GetRepository<CourseContent>().Update(courseContent);
+            await _uow.SaveChangesAsync();
+
+            return CustomResponse<NoContent>.Success(ResponseStatusCode.OK);
+        }
     }
 }

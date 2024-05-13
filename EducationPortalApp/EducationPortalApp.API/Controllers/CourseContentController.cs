@@ -38,5 +38,11 @@ namespace EducationPortalApp.API.Controllers
         {
             return CreateActionResultInstance(await _courseContentService.RemoveCourseContentAsync(courseContentId));
         }
+
+        [HttpPatch("[action]/{courseContentId}")]
+        public async Task<IActionResult> UpdateCourseContentStatus(int courseContentId, [FromBody] bool isChecked)
+        {
+            return CreateActionResultInstance(await _courseContentService.UpdateCourseContentStatusAsync(courseContentId, isChecked));
+        }
     }
 }
