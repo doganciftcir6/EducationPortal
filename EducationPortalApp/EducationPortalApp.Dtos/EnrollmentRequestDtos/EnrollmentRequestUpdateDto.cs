@@ -3,7 +3,6 @@
     public class EnrollmentRequestUpdateDto
     {
         public int Id { get; set; }
-        public int AppUserId { get; set; }
         public int CourseId { get; set; }
         public int EnrollmentRequestStatusId { get; set; }
     }

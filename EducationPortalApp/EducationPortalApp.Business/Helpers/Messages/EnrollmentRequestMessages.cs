@@ -2,6 +2,6 @@
 {
     public class EnrollmentRequestMessages
     {
-        public const string ENROLLMENT_REQUEST = "EnrollmentRequest not found!";
+        public const string NOT_FOUND_ENROLLMENT_REQUEST = "EnrollmentRequest not found!";
     }
 }
