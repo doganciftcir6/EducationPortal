@@ -2,9 +2,11 @@
 using EducationPortalApp.Business.Services.Concrete;
 using EducationPortalApp.Business.Services.Interfaces;
 using EducationPortalApp.Business.ValidationRules.FluentValidation.AppUserValidations;
+using EducationPortalApp.Business.ValidationRules.FluentValidation.CourseValidations;
 using EducationPortalApp.DataAccess.Contexts.EntityFramework;
 using EducationPortalApp.DataAccess.UnitOfWork;
 using EducationPortalApp.Dtos.AppUserDtos;
+using EducationPortalApp.Dtos.CourseDtos;
 using EducationPortalApp.Entities.UserEntities;
 using EducationPortalApp.Shared.Services;
 using EducationPortalApp.Shared.Utilities.Security;
@@ -54,6 +56,8 @@ namespace EducationPortalApp.Business.DependencyResolvers.Microsoft
             services.AddScoped<IValidator<AppUserRegisterDto>, AppUserRegisterDtoValidator>();
             services.AddScoped<IValidator<AppUserChangePasswordDto>, AppUserChangePasswordDtoValidator>();
             services.AddScoped<IValidator<RoleAssingSendDto>, RoleAssingSendDtoValidator>();
+            services.AddScoped<IValidator<CourseCreateDto>, CourseCreateDtoValidator>();
+            services.AddScoped<IValidator<CourseUpdateDto>, CourseUpdateDtoValidator>();    
 
             //AutoMapper
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
