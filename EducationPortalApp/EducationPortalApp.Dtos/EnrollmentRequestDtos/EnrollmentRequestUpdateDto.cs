@@ -1,4 +1,6 @@
-﻿namespace EducationPortalApp.Dtos.EnrollmentRequestDtos
+﻿using NSwag.Annotations;
+
+namespace EducationPortalApp.Dtos.EnrollmentRequestDtos
 {
     public class EnrollmentRequestUpdateDto
     {
