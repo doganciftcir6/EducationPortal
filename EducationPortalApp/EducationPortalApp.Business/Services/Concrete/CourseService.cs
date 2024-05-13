@@ -1,8 +1,11 @@
 ﻿using AutoMapper;
+using EducationPortalApp.Business.Helpers.Messages;
+using EducationPortalApp.Business.Helpers.UploadHelpers.Course;
 using EducationPortalApp.Business.Services.Interfaces;
 using EducationPortalApp.DataAccess.Repositories.Interfaces;
 using EducationPortalApp.DataAccess.UnitOfWork;
 using EducationPortalApp.Dtos.CourseDtos;
+using EducationPortalApp.Entities.CourseEntities;
 using EducationPortalApp.Shared.Utilities.Response;
 using FluentValidation;
 using Microsoft.AspNetCore.Hosting;
@@ -30,29 +33,84 @@ namespace EducationPortalApp.Business.Services.Concrete
             _configuration = configuration;
         }
 
-        public Task<CustomResponse<CourseDto>> GetCourseByIdAsync(int courseId)
+        public async Task<CustomResponse<CourseDto>> GetCourseByIdAsync(int courseId)
         {
-            throw new NotImplementedException();
+            CourseDto courseDto = _mapper.Map<CourseDto>(await _courseRepository.GetByFilterAsync(x => x.Id == courseId));
+            if (courseDto is not null)
+            {
+                return CustomResponse<CourseDto>.Success(courseDto, ResponseStatusCode.OK);
+
+            }
+            return CustomResponse<CourseDto>.Fail(CourseMessages.NOT_FOUND_COURSE, ResponseStatusCode.NOT_FOUND);
         }
 
-        public Task<CustomResponse<IEnumerable<CoursesDto>>> GetCoursesAsync()
+        public async Task<CustomResponse<IEnumerable<CoursesDto>>> GetCoursesAsync()
         {
-            throw new NotImplementedException();
+            IEnumerable<CoursesDto> coursesDtos = _mapper.Map<IEnumerable<CoursesDto>>(await _courseRepository.GetAllAsync());
+            return CustomResponse<IEnumerable<CoursesDto>>.Success(coursesDtos, ResponseStatusCode.OK);
         }
 
-        public Task<CustomResponse<NoContent>> InsertCourseAsync(CourseCreateDto courseCreateDto, CancellationToken cancellationToken)
+        public async Task<CustomResponse<NoContent>> InsertCourseAsync(CourseCreateDto courseCreateDto, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var validationResult = _courseCreateDtoValidator.Validate(courseCreateDto);
+            if (validationResult.IsValid)
+            {
+                Course course = _mapper.Map<Course>(courseCreateDto);
+                if (courseCreateDto.Picture != null && courseCreateDto.Picture.Length > 0)
+                {
+                    string createdPictureName = await CoursePictureUploadHelper.Run(_hostingEnvironment, courseCreateDto.Picture, _configuration, cancellationToken);
+                    course.Picture = createdPictureName;
+                }
+                await _uow.GetRepository<Course>().InsertAsync(course);
+                await _uow.SaveChangesAsync();
+                return CustomResponse<NoContent>.Success(ResponseStatusCode.OK);
+            }
+            return CustomResponse<NoContent>.Fail(validationResult.Errors.Select(x => x.ErrorMessage).ToList(), ResponseStatusCode.BAD_REQUEST);
         }
 
-        public Task<CustomResponse<NoContent>> RemoveCourseAsync(int courseId)
+        public async Task<CustomResponse<NoContent>> RemoveCourseAsync(int courseId)
         {
-            throw new NotImplementedException();
+            Course course = await _uow.GetRepository<Course>().GetByIdAsync(courseId);
+            if (course != null)
+            {
+                if (course.Picture != null && course.Picture.Length != 0)
+                {
+                    CoursePictureDeleteHelper.Delete(_hostingEnvironment, course.Picture);
+                    course.Picture = String.Empty;
+                }
+
+                _uow.GetRepository<Course>().Delete(course);
+                await _uow.SaveChangesAsync();
+                return CustomResponse<NoContent>.Success(ResponseStatusCode.OK);
+            }
+            return CustomResponse<NoContent>.Fail(CourseMessages.NOT_FOUND_COURSE, ResponseStatusCode.NOT_FOUND);
         }
 
-        public Task<CustomResponse<NoContent>> UpdateCourseAsync(CourseUpdateDto courseUpdateDto, CancellationToken cancellationToken)
+        public async Task<CustomResponse<NoContent>> UpdateCourseAsync(CourseUpdateDto courseUpdateDto, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var validationResult = _courseUpdateDtoValidator.Validate(courseUpdateDto);
+            if (validationResult.IsValid)
+            {
+                Course oldData = await _uow.GetRepository<Course>().AsNoTrackingGetByFilterAsync(x => x.Id == courseUpdateDto.Id);
+                if (oldData == null)
+                    return CustomResponse<NoContent>.Fail(CourseMessages.NOT_FOUND_COURSE, ResponseStatusCode.NOT_FOUND);
+
+                Course course = _mapper.Map<Course>(courseUpdateDto);
+                if (courseUpdateDto.Picture != null && courseUpdateDto.Picture.Length > 0)
+                {
+                    string createdPictureName = await CoursePictureUploadHelper.Run(_hostingEnvironment, courseUpdateDto.Picture, _configuration, cancellationToken);
+                    course.Picture = createdPictureName;
+                }
+                else
+                {
+                    course.Picture = oldData.Picture;
+                }
+
+                _uow.GetRepository<Course>().Update(course);
+                await _uow.SaveChangesAsync();
+                return CustomResponse<NoContent>.Success(ResponseStatusCode.OK);
+            }
+            return CustomResponse<NoContent>.Fail(validationResult.Errors.Select(x => x.ErrorMessage).ToList(), ResponseStatusCode.BAD_REQUEST);
         }
     }
 }
