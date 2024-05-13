@@ -113,5 +113,26 @@ namespace EducationPortalApp.Business.Services.Concrete
             }
             return CustomResponse<NoContent>.Fail(validationResult.Errors.Select(x => x.ErrorMessage).ToList(), ResponseStatusCode.BAD_REQUEST);
         }
+
+        public async Task<CustomResponse<NoContent>> DecreaseCourseCapacityAsync(int courseId)
+        {
+            Course course = await _uow.GetRepository<Course>().GetByIdAsync(courseId);
+            if (course != null)
+            {
+                if (course.Capacity > 0)
+                {
+                    //Kontenjanı bir azalt
+                    course.Capacity--;
+                    _uow.GetRepository<Course>().Update(course);
+                    await _uow.SaveChangesAsync();
+                    return CustomResponse<NoContent>.Success(ResponseStatusCode.OK);
+                }
+                else
+                {
+                    return CustomResponse<NoContent>.Fail(CourseMessages.ZERO_CAPACITY, ResponseStatusCode.BAD_REQUEST);
+                }
+            }
+            return CustomResponse<NoContent>.Fail(CourseMessages.NOT_FOUND_COURSE, ResponseStatusCode.NOT_FOUND);
+        }
     }
 }
