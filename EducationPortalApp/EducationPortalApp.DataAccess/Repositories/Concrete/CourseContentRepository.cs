@@ -15,7 +15,7 @@ namespace EducationPortalApp.DataAccess.Repositories.Concrete
 
         public override async Task<IEnumerable<CourseContent>> GetAllFilterAsync(Expression<Func<CourseContent, bool>> filter)
         {
-            return await _appDbContext.Set<CourseContent>().Include(x => x.Course).Include(x => x.CourseContentType).Where(filter).ToListAsync();
+            return await _appDbContext.Set<CourseContent>().Include(x => x.Course).ThenInclude(x => x.Category).Include(x => x.CourseContentType).Where(filter).ToListAsync();
         }
     }
 }
