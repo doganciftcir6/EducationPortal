@@ -4,6 +4,8 @@ using EducationPortalApp.Business.Services.Interfaces;
 using EducationPortalApp.Business.ValidationRules.FluentValidation.AppUserValidations;
 using EducationPortalApp.Business.ValidationRules.FluentValidation.CourseValidations;
 using EducationPortalApp.DataAccess.Contexts.EntityFramework;
+using EducationPortalApp.DataAccess.Repositories.Concrete;
+using EducationPortalApp.DataAccess.Repositories.Interfaces;
 using EducationPortalApp.DataAccess.UnitOfWork;
 using EducationPortalApp.Dtos.AppUserDtos;
 using EducationPortalApp.Dtos.CourseDtos;
@@ -44,6 +46,8 @@ namespace EducationPortalApp.Business.DependencyResolvers.Microsoft
 
             //Scopes,Singletons,Transients
             services.AddScoped<IUow, Uow>();
+            services.AddScoped<ICourseRepository, CourseRepository>();
+
             services.AddScoped<ISharedIdentityService, SharedIdentityService>();
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<IAppUserService, AppUserService>();
