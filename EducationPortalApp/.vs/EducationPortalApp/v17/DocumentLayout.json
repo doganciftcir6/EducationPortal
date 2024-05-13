@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{56A15D32-AD5F-4C8F-81EA-5C8DEEFBA9D8}|EducationPortalApp.API\\EducationPortalApp.API.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\educationportalapp.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56A15D32-AD5F-4C8F-81EA-5C8DEEFBA9D8}|EducationPortalApp.API\\EducationPortalApp.API.csproj|solutionrelative:educationportalapp.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30FFECDF-799F-4C06-8417-4671D77F4B55}|EducationPortalApp.Business\\EducationPortalApp.Business.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\educationportalapp.business\\helpers\\uploadhelpers\\course\\coursepictureuploadhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30FFECDF-799F-4C06-8417-4671D77F4B55}|EducationPortalApp.Business\\EducationPortalApp.Business.csproj|solutionrelative:educationportalapp.business\\helpers\\uploadhelpers\\course\\coursepictureuploadhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30FFECDF-799F-4C06-8417-4671D77F4B55}|EducationPortalApp.Business\\EducationPortalApp.Business.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\educationportalapp.business\\helpers\\uploadhelpers\\course\\coursepicturedeletehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30FFECDF-799F-4C06-8417-4671D77F4B55}|EducationPortalApp.Business\\EducationPortalApp.Business.csproj|solutionrelative:educationportalapp.business\\helpers\\uploadhelpers\\course\\coursepicturedeletehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{30FFECDF-799F-4C06-8417-4671D77F4B55}|EducationPortalApp.Business\\EducationPortalApp.Business.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\educationportalapp.business\\helpers\\messages\\coursemessages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{30FFECDF-799F-4C06-8417-4671D77F4B55}|EducationPortalApp.Business\\EducationPortalApp.Business.csproj|solutionrelative:educationportalapp.business\\helpers\\messages\\coursemessages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -71,6 +83,45 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.API\\Program.cs",
+              "RelativeDocumentMoniker": "EducationPortalApp.API\\Program.cs",
+              "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.API\\Program.cs",
+              "RelativeToolTip": "EducationPortalApp.API\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-13T11:46:18.403Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CoursePictureDeleteHelper.cs",
+              "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Business\\Helpers\\UploadHelpers\\Course\\CoursePictureDeleteHelper.cs",
+              "RelativeDocumentMoniker": "EducationPortalApp.Business\\Helpers\\UploadHelpers\\Course\\CoursePictureDeleteHelper.cs",
+              "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Business\\Helpers\\UploadHelpers\\Course\\CoursePictureDeleteHelper.cs",
+              "RelativeToolTip": "EducationPortalApp.Business\\Helpers\\UploadHelpers\\Course\\CoursePictureDeleteHelper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-13T11:44:26.764Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CoursePictureUploadHelper.cs",
+              "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Business\\Helpers\\UploadHelpers\\Course\\CoursePictureUploadHelper.cs",
+              "RelativeDocumentMoniker": "EducationPortalApp.Business\\Helpers\\UploadHelpers\\Course\\CoursePictureUploadHelper.cs",
+              "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Business\\Helpers\\UploadHelpers\\Course\\CoursePictureUploadHelper.cs",
+              "RelativeToolTip": "EducationPortalApp.Business\\Helpers\\UploadHelpers\\Course\\CoursePictureUploadHelper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-13T11:44:02.263Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "CourseMessages.cs",
               "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Business\\Helpers\\Messages\\CourseMessages.cs",
               "RelativeDocumentMoniker": "EducationPortalApp.Business\\Helpers\\Messages\\CourseMessages.cs",
@@ -83,7 +134,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "CourseService.cs",
               "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Business\\Services\\Concrete\\CourseService.cs",
               "RelativeDocumentMoniker": "EducationPortalApp.Business\\Services\\Concrete\\CourseService.cs",
@@ -96,7 +147,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "ICourseService.cs",
               "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Business\\Services\\Interfaces\\ICourseService.cs",
               "RelativeDocumentMoniker": "EducationPortalApp.Business\\Services\\Interfaces\\ICourseService.cs",
@@ -109,7 +160,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "CourseRepository.cs",
               "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.DataAccess\\Repositories\\Concrete\\CourseRepository.cs",
               "RelativeDocumentMoniker": "EducationPortalApp.DataAccess\\Repositories\\Concrete\\CourseRepository.cs",
@@ -122,7 +173,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "DependencyExtension.cs",
               "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Business\\DependencyResolvers\\Microsoft\\DependencyExtension.cs",
               "RelativeDocumentMoniker": "EducationPortalApp.Business\\DependencyResolvers\\Microsoft\\DependencyExtension.cs",
@@ -135,7 +186,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "CourseUpdateDtoValidator.cs",
               "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Business\\ValidationRules\\FluentValidation\\CourseValidations\\CourseUpdateDtoValidator.cs",
               "RelativeDocumentMoniker": "EducationPortalApp.Business\\ValidationRules\\FluentValidation\\CourseValidations\\CourseUpdateDtoValidator.cs",
@@ -148,7 +199,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "CourseCreateDtoValidator.cs",
               "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Business\\ValidationRules\\FluentValidation\\CourseValidations\\CourseCreateDtoValidator.cs",
               "RelativeDocumentMoniker": "EducationPortalApp.Business\\ValidationRules\\FluentValidation\\CourseValidations\\CourseCreateDtoValidator.cs",
@@ -161,7 +212,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "CourseConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.DataAccess\\Configurations\\CourseConfiguration.cs",
               "RelativeDocumentMoniker": "EducationPortalApp.DataAccess\\Configurations\\CourseConfiguration.cs",
@@ -174,7 +225,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "CourseCreateDto.cs",
               "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Dtos\\CourseDtos\\CourseCreateDto.cs",
               "RelativeDocumentMoniker": "EducationPortalApp.Dtos\\CourseDtos\\CourseCreateDto.cs",
@@ -187,7 +238,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "CourseProfile.cs",
               "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Business\\Mapping\\AutoMapper\\CourseProfile.cs",
               "RelativeDocumentMoniker": "EducationPortalApp.Business\\Mapping\\AutoMapper\\CourseProfile.cs",
@@ -200,7 +251,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "CoursesDto.cs",
               "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Dtos\\CourseDtos\\CoursesDto.cs",
               "RelativeDocumentMoniker": "EducationPortalApp.Dtos\\CourseDtos\\CoursesDto.cs",
@@ -213,7 +264,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "CourseDto.cs",
               "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Dtos\\CourseDtos\\CourseDto.cs",
               "RelativeDocumentMoniker": "EducationPortalApp.Dtos\\CourseDtos\\CourseDto.cs",
@@ -226,7 +277,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 15,
               "Title": "CourseUpdateDto.cs",
               "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Dtos\\CourseDtos\\CourseUpdateDto.cs",
               "RelativeDocumentMoniker": "EducationPortalApp.Dtos\\CourseDtos\\CourseUpdateDto.cs",
@@ -239,7 +290,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 16,
               "Title": "Course.cs",
               "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Entities\\CourseEntities\\Course.cs",
               "RelativeDocumentMoniker": "EducationPortalApp.Entities\\CourseEntities\\Course.cs",
