@@ -13,6 +13,7 @@ namespace EducationPortalApp.Entities.CourseEntities
         public int Capacity { get; set; }
         public decimal CostPerDay { get; set; }
         public int DurationInHours { get; set; }
+        public string? Picture { get; set; }
         public DateTime CreateDate { get; set; }
 
 
