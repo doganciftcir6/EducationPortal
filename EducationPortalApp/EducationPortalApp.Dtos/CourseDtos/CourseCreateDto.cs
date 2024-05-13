@@ -11,7 +11,6 @@ namespace EducationPortalApp.Dtos.CourseDtos
         public decimal CostPerDay { get; set; }
         public int DurationInHours { get; set; }
         public IFormFile? Picture { get; set; }
-        public DateTime CreateDate { get; set; }
 
         public int CategoryId { get; set; }
     }

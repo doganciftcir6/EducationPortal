@@ -61,6 +61,7 @@ namespace EducationPortalApp.Business.Services.Concrete
                     string createdPictureName = await CoursePictureUploadHelper.Run(_hostingEnvironment, courseCreateDto.Picture, _configuration, cancellationToken);
                     course.Picture = createdPictureName;
                 }
+                course.CreateDate = DateTime.Now;
                 await _uow.GetRepository<Course>().InsertAsync(course);
                 await _uow.SaveChangesAsync();
                 return CustomResponse<NoContent>.Success(ResponseStatusCode.OK);
