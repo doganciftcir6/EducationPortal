@@ -51,6 +51,7 @@ namespace EducationPortalApp.Business.DependencyResolvers.Microsoft
             //Scopes,Singletons,Transients
             services.AddScoped<IUow, Uow>();
             services.AddScoped<ICourseRepository, CourseRepository>();
+            services.AddScoped<ICourseContentRepository, CourseContentRepository>();
 
             services.AddScoped<ISharedIdentityService, SharedIdentityService>();
             services.AddScoped<IAuthService, AuthService>();
