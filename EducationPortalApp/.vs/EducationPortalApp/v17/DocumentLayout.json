@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{30FFECDF-799F-4C06-8417-4671D77F4B55}|EducationPortalApp.Business\\EducationPortalApp.Business.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\educationportalapp.business\\services\\concrete\\enrollmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30FFECDF-799F-4C06-8417-4671D77F4B55}|EducationPortalApp.Business\\EducationPortalApp.Business.csproj|solutionrelative:educationportalapp.business\\services\\concrete\\enrollmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{30FFECDF-799F-4C06-8417-4671D77F4B55}|EducationPortalApp.Business\\EducationPortalApp.Business.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\educationportalapp.business\\services\\concrete\\courseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{30FFECDF-799F-4C06-8417-4671D77F4B55}|EducationPortalApp.Business\\EducationPortalApp.Business.csproj|solutionrelative:educationportalapp.business\\services\\concrete\\courseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{30FFECDF-799F-4C06-8417-4671D77F4B55}|EducationPortalApp.Business\\EducationPortalApp.Business.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\educationportalapp.business\\services\\interfaces\\ienrollmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{30FFECDF-799F-4C06-8417-4671D77F4B55}|EducationPortalApp.Business\\EducationPortalApp.Business.csproj|solutionrelative:educationportalapp.business\\services\\interfaces\\ienrollmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30FFECDF-799F-4C06-8417-4671D77F4B55}|EducationPortalApp.Business\\EducationPortalApp.Business.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\educationportalapp.business\\helpers\\messages\\coursemessages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30FFECDF-799F-4C06-8417-4671D77F4B55}|EducationPortalApp.Business\\EducationPortalApp.Business.csproj|solutionrelative:educationportalapp.business\\helpers\\messages\\coursemessages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30FFECDF-799F-4C06-8417-4671D77F4B55}|EducationPortalApp.Business\\EducationPortalApp.Business.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\educationportalapp.business\\services\\concrete\\enrollmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30FFECDF-799F-4C06-8417-4671D77F4B55}|EducationPortalApp.Business\\EducationPortalApp.Business.csproj|solutionrelative:educationportalapp.business\\services\\concrete\\enrollmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{30FFECDF-799F-4C06-8417-4671D77F4B55}|EducationPortalApp.Business\\EducationPortalApp.Business.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\educationportalapp.business\\services\\concrete\\enrollmentrequestservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -30,11 +34,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "CourseMessages.cs",
+              "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Business\\Helpers\\Messages\\CourseMessages.cs",
+              "RelativeDocumentMoniker": "EducationPortalApp.Business\\Helpers\\Messages\\CourseMessages.cs",
+              "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Business\\Helpers\\Messages\\CourseMessages.cs",
+              "RelativeToolTip": "EducationPortalApp.Business\\Helpers\\Messages\\CourseMessages.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAABfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-14T13:39:19.884Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "IEnrollmentService.cs",
               "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Business\\Services\\Interfaces\\IEnrollmentService.cs",
               "RelativeDocumentMoniker": "EducationPortalApp.Business\\Services\\Interfaces\\IEnrollmentService.cs",
@@ -47,20 +64,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "CourseService.cs",
               "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Business\\Services\\Concrete\\CourseService.cs",
               "RelativeDocumentMoniker": "EducationPortalApp.Business\\Services\\Concrete\\CourseService.cs",
               "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Business\\Services\\Concrete\\CourseService.cs",
               "RelativeToolTip": "EducationPortalApp.Business\\Services\\Concrete\\CourseService.cs",
-              "ViewState": "AQIAAIAAAAAAAAAAAAAAAIsAAAA7AAAA",
+              "ViewState": "AQIAAHoAAAAAAAAAAAAAAJEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-14T13:09:54.366Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "IEnrollmentRequestService.cs",
               "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Business\\Services\\Interfaces\\IEnrollmentRequestService.cs",
               "RelativeDocumentMoniker": "EducationPortalApp.Business\\Services\\Interfaces\\IEnrollmentRequestService.cs",
@@ -73,7 +90,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "EnrollmentRequestService.cs",
               "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Business\\Services\\Concrete\\EnrollmentRequestService.cs",
               "RelativeDocumentMoniker": "EducationPortalApp.Business\\Services\\Concrete\\EnrollmentRequestService.cs",
@@ -86,13 +103,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "EnrollmentService.cs",
               "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Business\\Services\\Concrete\\EnrollmentService.cs",
               "RelativeDocumentMoniker": "EducationPortalApp.Business\\Services\\Concrete\\EnrollmentService.cs",
               "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Business\\Services\\Concrete\\EnrollmentService.cs",
               "RelativeToolTip": "EducationPortalApp.Business\\Services\\Concrete\\EnrollmentService.cs",
-              "ViewState": "AQIAAAEAAAAAAAAAAAAAAAwAAAA3AAAA",
+              "ViewState": "AQIAACYAAAAAAAAAAAAYwAwAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-14T11:42:15.772Z",
               "EditorCaption": ""

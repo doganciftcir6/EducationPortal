@@ -9,6 +9,7 @@ namespace EducationPortalApp.Dtos.CourseDtos
         public string Description { get; set; }
         public string Instructor { get; set; }
         public int Capacity { get; set; }
+        public int MaxCapacity { get; set; }
         public decimal CostPerDay { get; set; }
         public int DurationInHours { get; set; }
         public IFormFile? Picture { get; set; }

@@ -17,7 +17,7 @@ namespace EducationPortalApp.Business.ValidationRules.FluentValidation.CourseVal
             RuleFor(x => x.Description).MinimumLength(2).WithMessage("The description field must contain at least 2 characters!");
             RuleFor(x => x.Description).MaximumLength(500).WithMessage("The description field can contain a maximum of 500 characters!");
             RuleFor(x => x.CostPerDay).NotEmpty().WithMessage("The costperday field cannot be empty!");
-            RuleFor(x => x.Capacity).NotEmpty().WithMessage("The capacity field cannot be empty!");
+            RuleFor(x => x.MaxCapacity).NotEmpty().WithMessage("The max capacity field cannot be empty!");
             RuleFor(x => x.DurationInHours).NotEmpty().WithMessage("The durationinhours field cannot be empty!");
             RuleFor(x => x.CategoryId).NotEmpty().WithMessage("The category field cannot be empty!");
         }

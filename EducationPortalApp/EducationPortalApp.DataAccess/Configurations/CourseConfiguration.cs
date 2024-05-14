@@ -12,6 +12,7 @@ namespace EducationPortalApp.DataAccess.Configurations
             builder.Property(x => x.Description).IsRequired().HasMaxLength(500);
             builder.Property(x => x.Instructor).IsRequired().HasMaxLength(150);
             builder.Property(x => x.Capacity).IsRequired();
+            builder.Property(x => x.MaxCapacity).IsRequired();
             builder.Property(x => x.CostPerDay).IsRequired();
             builder.Property(x => x.DurationInHours).IsRequired();
             builder.Property(x => x.CreateDate).HasDefaultValueSql("getdate()");

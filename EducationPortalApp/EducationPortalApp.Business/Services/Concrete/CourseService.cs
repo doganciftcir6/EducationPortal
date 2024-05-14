@@ -138,22 +138,17 @@ namespace EducationPortalApp.Business.Services.Concrete
         public async Task<CustomResponse<NoContent>> IncreaseCourseCapacityAsync(int courseId)
         {
             Course course = await _uow.GetRepository<Course>().GetByIdAsync(courseId);
-            if (course != null)
+
+            if (course.Capacity >= course.MaxCapacity)
             {
-                if (course.Capacity > 0)
-                {
-                    //Kontenjanı bir arttır
-                    course.Capacity++;
-                    _uow.GetRepository<Course>().Update(course);
-                    await _uow.SaveChangesAsync();
-                    return CustomResponse<NoContent>.Success(ResponseStatusCode.OK);
-                }
-                else
-                {
-                    return CustomResponse<NoContent>.Fail(CourseMessages.ZERO_CAPACITY, ResponseStatusCode.BAD_REQUEST);
-                }
+                return CustomResponse<NoContent>.Fail(CourseMessages.MAX_CAPACITY_REACHED, ResponseStatusCode.BAD_REQUEST);
             }
-            return CustomResponse<NoContent>.Fail(CourseMessages.NOT_FOUND_COURSE, ResponseStatusCode.NOT_FOUND);
+
+            //Kapasite dolu değilse kapasiteyi arttır
+            course.Capacity++;
+            _uow.GetRepository<Course>().Update(course);
+            await _uow.SaveChangesAsync();
+            return CustomResponse<NoContent>.Success(ResponseStatusCode.OK);
         }
     }
 }
