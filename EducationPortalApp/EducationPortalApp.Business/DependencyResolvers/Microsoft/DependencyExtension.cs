@@ -6,6 +6,7 @@ using EducationPortalApp.Business.ValidationRules.FluentValidation.CategoryValid
 using EducationPortalApp.Business.ValidationRules.FluentValidation.CourseContentValidations;
 using EducationPortalApp.Business.ValidationRules.FluentValidation.CourseValidations;
 using EducationPortalApp.Business.ValidationRules.FluentValidation.EnrollmentRequestValidations;
+using EducationPortalApp.Business.ValidationRules.FluentValidation.EnrollmentValidations;
 using EducationPortalApp.DataAccess.Contexts.EntityFramework;
 using EducationPortalApp.DataAccess.Repositories.Concrete;
 using EducationPortalApp.DataAccess.Repositories.Interfaces;
@@ -14,6 +15,7 @@ using EducationPortalApp.Dtos.AppUserDtos;
 using EducationPortalApp.Dtos.CategoryDtos;
 using EducationPortalApp.Dtos.CourseContentDtos;
 using EducationPortalApp.Dtos.CourseDtos;
+using EducationPortalApp.Dtos.EnrollmentDtos;
 using EducationPortalApp.Dtos.EnrollmentRequestDtos;
 using EducationPortalApp.Entities.UserEntities;
 using EducationPortalApp.Shared.Services;
@@ -80,6 +82,8 @@ namespace EducationPortalApp.Business.DependencyResolvers.Microsoft
             services.AddScoped<IValidator<CourseContentUpdateDto>, CourseContentUpdateDtoValidator>();
             services.AddScoped<IValidator<EnrollmentRequestCreateDto>, EnrollmentRequestCreateDtoValidator>();
             services.AddScoped<IValidator<EnrollmentRequestUpdateDto>, EnrollmentRequestUpdateDtoValidator>();
+            services.AddScoped<IValidator<EnrollmentCreateDto>, EnrollmentCreateDtoValidator>();
+            services.AddScoped<IValidator<EnrollmentUpdateDto>, EnrollmentUpdateDtoValidator>();
 
             //AutoMapper
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
