@@ -57,6 +57,7 @@ namespace EducationPortalApp.Business.DependencyResolvers.Microsoft
             services.AddScoped<ICourseRepository, CourseRepository>();
             services.AddScoped<ICourseContentRepository, CourseContentRepository>();
             services.AddScoped<IEnrollmentRequestRepository, EnrollmentRequestRepository>();
+            services.AddScoped<IEnrollmentRepository, EnrollmentRepository>();
 
             services.AddScoped<ISharedIdentityService, SharedIdentityService>();
             services.AddScoped<IAuthService, AuthService>();
@@ -68,6 +69,7 @@ namespace EducationPortalApp.Business.DependencyResolvers.Microsoft
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<ICourseContentService, CourseContentService>();
             services.AddScoped<IEnrollmentRequestService, EnrollmentRequestService>();
+            services.AddScoped<IEnrollmentService, EnrollmentService>();
 
             //FluentValidations
             services.AddScoped<IValidator<AppUserLoginDto>, AppUserLoginDtoValidator>();
