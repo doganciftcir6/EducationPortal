@@ -44,11 +44,5 @@ namespace EducationPortalApp.API.Controllers
         {
             return CreateActionResultInstance(await _courseService.RemoveCourseAsync(courseId));
         }
-
-        [HttpPatch("[action]/{courseId}")]
-        public async Task<IActionResult> DecreaseCourseCapacity(int courseId)
-        {
-            return CreateActionResultInstance(await _courseService.DecreaseCourseCapacityAsync(courseId));
-        }
     }
 }
