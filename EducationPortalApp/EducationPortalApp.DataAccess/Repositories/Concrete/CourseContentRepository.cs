@@ -17,5 +17,10 @@ namespace EducationPortalApp.DataAccess.Repositories.Concrete
         {
             return await _appDbContext.Set<CourseContent>().Include(x => x.Course).ThenInclude(x => x.Category).Include(x => x.CourseContentType).Where(filter).ToListAsync();
         }
+
+        public override async Task<CourseContent> GetByFilterAsync(Expression<Func<CourseContent, bool>> filter)
+        {
+            return await _appDbContext.Set<CourseContent>().Include(x => x.Course).ThenInclude(x => x.Category).Include(x => x.CourseContentType).Where(filter).SingleOrDefaultAsync();
+        }
     }
 }

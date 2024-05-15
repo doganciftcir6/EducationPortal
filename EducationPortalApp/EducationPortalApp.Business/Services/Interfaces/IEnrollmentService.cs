@@ -7,8 +7,9 @@ namespace EducationPortalApp.Business.Services.Interfaces
     {
         Task<CustomResponse<IEnumerable<EnrollmentDto>>> GetAllEnrollmentAsync();
         Task<CustomResponse<IEnumerable<EnrollmentDto>>> GetAllEnrollmentByUserAsync();
+        Task<CustomResponse<IEnumerable<EnrollmentDto>>> GetAllEnrollmentByUserIdAsync(int userId);
         Task<CustomResponse<NoContent>> InsertEnrollmentAsync(EnrollmentCreateDto enrollmentCreateDto, int enrollmentRequestId);
-        Task<CustomResponse<NoContent>> UpdateEnrollmentAsync(EnrollmentUpdateDto enrollmentUpdateDto);
-        Task<CustomResponse<NoContent>> RemoveEnrollmentAsync(int enrollmentId);
+        Task<CustomResponse<NoContent>> RemoveEnrollmentAsync(int enrollmentId, int enrollmentRequestId);
+        Task<bool> UpdateEnrollmentCompletionStatusAsync(int courseId);
     }
 }

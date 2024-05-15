@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
+using EducationPortalApp.Business.Helpers.Messages;
 using EducationPortalApp.Business.Services.Interfaces;
 using EducationPortalApp.DataAccess.Repositories.Interfaces;
 using EducationPortalApp.DataAccess.UnitOfWork;
 using EducationPortalApp.Dtos.EnrollmentDtos;
+using EducationPortalApp.Entities.CourseEntities;
 using EducationPortalApp.Entities.EnrollmentEntities;
 using EducationPortalApp.Shared.Services;
 using EducationPortalApp.Shared.Utilities.Response;
@@ -16,17 +18,15 @@ namespace EducationPortalApp.Business.Services.Concrete
         private readonly IEnrollmentRepository _enrollmenRepository;
         private readonly IMapper _mapper;
         private readonly IValidator<EnrollmentCreateDto> _enrollmentCreateDtoValidator;
-        private readonly IValidator<EnrollmentUpdateDto> _enrollmentUpdateDtoValidator;
         private readonly ISharedIdentityService _sharedIdentityService;
         private readonly ICourseService _courseService;
         private readonly IEnrollmentRequestService _enrollmentRequestService;
-        public EnrollmentService(IUow uow, IEnrollmentRepository enrollmenRepository, IMapper mapper, IValidator<EnrollmentCreateDto> enrollmentCreateDtoValidator, IValidator<EnrollmentUpdateDto> enrollmentUpdateDtoValidator, ISharedIdentityService sharedIdentityService, ICourseService courseService, IEnrollmentRequestService enrollmentRequestService)
+        public EnrollmentService(IUow uow, IEnrollmentRepository enrollmenRepository, IMapper mapper, IValidator<EnrollmentCreateDto> enrollmentCreateDtoValidator, ISharedIdentityService sharedIdentityService, ICourseService courseService, IEnrollmentRequestService enrollmentRequestService)
         {
             _uow = uow;
             _enrollmenRepository = enrollmenRepository;
             _mapper = mapper;
             _enrollmentCreateDtoValidator = enrollmentCreateDtoValidator;
-            _enrollmentUpdateDtoValidator = enrollmentUpdateDtoValidator;
             _sharedIdentityService = sharedIdentityService;
             _courseService = courseService;
             _enrollmentRequestService = enrollmentRequestService;
@@ -44,6 +44,12 @@ namespace EducationPortalApp.Business.Services.Concrete
             return CustomResponse<IEnumerable<EnrollmentDto>>.Success(enrollmentDtos, ResponseStatusCode.OK);
         }
 
+        public async Task<CustomResponse<IEnumerable<EnrollmentDto>>> GetAllEnrollmentByUserIdAsync(int userId)
+        {
+            IEnumerable<EnrollmentDto> enrollmentDtos = _mapper.Map<IEnumerable<EnrollmentDto>>(await _enrollmenRepository.GetAllFilterAsync(x => x.AppUserId == userId));
+            return CustomResponse<IEnumerable<EnrollmentDto>>.Success(enrollmentDtos, ResponseStatusCode.OK);
+        }
+
         public async Task<CustomResponse<NoContent>> InsertEnrollmentAsync(EnrollmentCreateDto enrollmentCreateDto, int enrollmentRequestId)
         {
             var validationResult = _enrollmentCreateDtoValidator.Validate(enrollmentCreateDto);
@@ -54,7 +60,7 @@ namespace EducationPortalApp.Business.Services.Concrete
                 //Kapasite düşür
                 var decreaseCourseCapacityResponse = await _courseService.DecreaseCourseCapacityAsync(enrollment.CourseId);
                 if (decreaseCourseCapacityResponse.Errors != null)
-                    return CustomResponse<NoContent>.Fail(decreaseCourseCapacityResponse.Errors, ResponseStatusCode.BAD_REQUEST); 
+                    return CustomResponse<NoContent>.Fail(decreaseCourseCapacityResponse.Errors, ResponseStatusCode.BAD_REQUEST);
 
                 //İlgili enrollment requesti sil artık sonuç geldi
                 await _enrollmentRequestService.RemoveEnrollmentRequestAsync(enrollmentRequestId);
@@ -64,14 +70,47 @@ namespace EducationPortalApp.Business.Services.Concrete
             return CustomResponse<NoContent>.Fail(validationResult.Errors.Select(x => x.ErrorMessage).ToList(), ResponseStatusCode.BAD_REQUEST);
         }
 
-        public Task<CustomResponse<NoContent>> RemoveEnrollmentAsync(int enrollmentId)
+        public async Task<CustomResponse<NoContent>> RemoveEnrollmentAsync(int enrollmentId, int enrollmentRequestId)
         {
-            throw new NotImplementedException();
+            Enrollment enrollment = await _uow.GetRepository<Enrollment>().GetByIdAsync(enrollmentId);
+            if (enrollment != null)
+            {
+                _uow.GetRepository<Enrollment>().Delete(enrollment);
+
+                //Kapasite arttır
+                var increaseCoruseCapacityResponse = await _courseService.IncreaseCourseCapacityAsync(enrollment.CourseId);
+                if (increaseCoruseCapacityResponse.Errors != null)
+                    return CustomResponse<NoContent>.Fail(increaseCoruseCapacityResponse.Errors, ResponseStatusCode.BAD_REQUEST);
+                //İlgili enrollment requesti sil artık sonuç geldi
+
+                await _enrollmentRequestService.RemoveEnrollmentRequestAsync(enrollmentRequestId);
+                await _uow.SaveChangesAsync();
+                return CustomResponse<NoContent>.Success(ResponseStatusCode.OK);
+            }
+            return CustomResponse<NoContent>.Fail(EnrollmentMessages.NOT_FOUND_ENROLLMENT, ResponseStatusCode.NOT_FOUND);
         }
 
-        public Task<CustomResponse<NoContent>> UpdateEnrollmentAsync(EnrollmentUpdateDto enrollmentUpdateDto)
+        public async Task<bool> UpdateEnrollmentCompletionStatusAsync(int courseId)
         {
-            throw new NotImplementedException();
+            var courseContents = await _uow.GetRepository<CourseContent>().GetAllFilterAsync(x => x.CourseId == courseId);
+            var enrollment = await _uow.GetRepository<Enrollment>().GetByFilterAsync(x => x.CourseId == courseId && x.AppUserId == _sharedIdentityService.GetUserId);
+
+            if (courseContents == null || enrollment == null)
+            {
+                return false;
+            }
+
+            //Tüm kurs içeriği işaretlenmiş mi kontrol et
+            bool allChecked = courseContents.All(cc => cc.Status);
+
+            //Eğer tüm kurs içeriği işaretlenmişse, IsCompleted alanını true olarak güncelle
+            if (allChecked)
+            {
+                enrollment.IsCompleted = true;
+                await _uow.SaveChangesAsync();
+            }
+
+            return true;
         }
     }
 }

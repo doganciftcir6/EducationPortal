@@ -1,6 +1,7 @@
 ﻿using EducationPortalApp.Business.Services.Interfaces;
 using EducationPortalApp.Dtos.CourseContentDtos;
 using EducationPortalApp.Shared.ControllerBases;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EducationPortalApp.API.Controllers
@@ -10,9 +11,11 @@ namespace EducationPortalApp.API.Controllers
     public class CourseContentController : CustomBaseController
     {
         private readonly ICourseContentService _courseContentService;
-        public CourseContentController(ICourseContentService courseContentService)
+        private readonly IEnrollmentService _enrollmentService;
+        public CourseContentController(ICourseContentService courseContentService, IEnrollmentService enrollmentService)
         {
             _courseContentService = courseContentService;
+            _enrollmentService = enrollmentService;
         }
 
         [HttpGet("[action]/{courseId}")]
@@ -40,9 +43,24 @@ namespace EducationPortalApp.API.Controllers
         }
 
         [HttpPatch("[action]/{courseContentId}")]
+        [Authorize]
         public async Task<IActionResult> UpdateCourseContentStatus(int courseContentId, [FromBody] bool isChecked)
         {
-            return CreateActionResultInstance(await _courseContentService.UpdateCourseContentStatusAsync(courseContentId, isChecked));
+            var result = await _courseContentService.UpdateCourseContentStatusAsync(courseContentId, isChecked);
+            if (result.Errors != null)
+                return BadRequest(result.Errors);
+
+            var courseContentResult = await _courseContentService.GetByIdCourseContentAsync(courseContentId);
+            if (courseContentResult.Errors != null)
+                return BadRequest(courseContentResult.Errors);
+
+            var enrollmentUpdated = await _enrollmentService.UpdateEnrollmentCompletionStatusAsync(courseContentResult.Data.Course.Id);
+            if (!enrollmentUpdated)
+            {
+                // Güncelleme başarısız olduysa, uygun bir hata yanıtı döndür
+                return BadRequest("Failed to update enrollment completion status.");
+            }
+            return Ok();
         }
     }
 }

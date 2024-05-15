@@ -39,6 +39,17 @@ namespace EducationPortalApp.Business.Services.Concrete
             return CustomResponse<IEnumerable<CourseContentDto>>.Success(courseContentDtos, ResponseStatusCode.OK);
         }
 
+        public async Task<CustomResponse<CourseContentDto>> GetByIdCourseContentAsync(int courseContentId)
+        {
+            CourseContentDto courseContentDto = _mapper.Map<CourseContentDto>(await _courseContentRepository.GetByFilterAsync(x => x.Id == courseContentId));
+            if (courseContentDto is not null)
+            {
+                return CustomResponse<CourseContentDto>.Success(courseContentDto, ResponseStatusCode.OK);
+
+            }
+            return CustomResponse<CourseContentDto>.Fail(CourseContentMessages.NOT_FOUND_COURSE_CONTENT, ResponseStatusCode.NOT_FOUND);
+        }
+
         public async Task<CustomResponse<NoContent>> InsertCourseContentAsync(CourseContentCreateDto courseContentCreateDto, CancellationToken cancellationToken)
         {
             var validationResult = _courseContentCreateDtoValidator.Validate(courseContentCreateDto);
