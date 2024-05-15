@@ -2,6 +2,8 @@
 using EducationPortalApp.DataAccess.Repositories.GenericRepositories;
 using EducationPortalApp.DataAccess.Repositories.Interfaces;
 using EducationPortalApp.Entities.EnrollmentEntities;
+using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace EducationPortalApp.DataAccess.Repositories.Concrete
 {
@@ -9,6 +11,16 @@ namespace EducationPortalApp.DataAccess.Repositories.Concrete
     {
         public EnrollmentRepository(AppDbContext appDbContext) : base(appDbContext)
         {
+        }
+
+        public override async Task<IEnumerable<Enrollment>> GetAllAsync()
+        {
+            return await _appDbContext.Set<Enrollment>().Include(x => x.AppUser).Include(x => x.Course).ToListAsync();
+        }
+
+        public override async Task<IEnumerable<Enrollment>> GetAllFilterAsync(Expression<Func<Enrollment, bool>> filter)
+        {
+            return await _appDbContext.Set<Enrollment>().Include(x => x.AppUser).Include(x => x.Course).Where(filter).ToListAsync();
         }
     }
 }
