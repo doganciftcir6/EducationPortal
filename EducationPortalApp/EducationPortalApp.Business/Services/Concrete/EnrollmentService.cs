@@ -44,10 +44,10 @@ namespace EducationPortalApp.Business.Services.Concrete
             return CustomResponse<IEnumerable<EnrollmentDto>>.Success(enrollmentDtos, ResponseStatusCode.OK);
         }
 
-        public async Task<CustomResponse<IEnumerable<EnrollmentDto>>> GetAllEnrollmentByUserIdAsync(int userId)
+        public async Task<CustomResponse<EnrollmentDto>> GetEnrollmentByUserIdAndCourseIdAsync(int userId, int courseId)
         {
-            IEnumerable<EnrollmentDto> enrollmentDtos = _mapper.Map<IEnumerable<EnrollmentDto>>(await _enrollmenRepository.GetAllFilterAsync(x => x.AppUserId == userId));
-            return CustomResponse<IEnumerable<EnrollmentDto>>.Success(enrollmentDtos, ResponseStatusCode.OK);
+            EnrollmentDto enrollmentDto = _mapper.Map<EnrollmentDto>(await _enrollmenRepository.GetByFilterAsync(x => x.AppUserId == userId && x.CourseId == courseId));
+            return CustomResponse<EnrollmentDto>.Success(enrollmentDto, ResponseStatusCode.OK);
         }
 
         public async Task<CustomResponse<NoContent>> InsertEnrollmentAsync(EnrollmentCreateDto enrollmentCreateDto, int enrollmentRequestId)

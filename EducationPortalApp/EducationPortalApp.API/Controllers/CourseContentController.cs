@@ -19,6 +19,7 @@ namespace EducationPortalApp.API.Controllers
         }
 
         [HttpGet("[action]/{courseId}")]
+        [Authorize]
         public async Task<IActionResult> GetAllCourseContent(int courseId)
         {
             return CreateActionResultInstance(await _courseContentService.GetAllCourseContentByCourseIdAsync(courseId));

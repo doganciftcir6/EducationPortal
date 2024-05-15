@@ -6,6 +6,7 @@ using EducationPortalApp.DataAccess.Repositories.Interfaces;
 using EducationPortalApp.DataAccess.UnitOfWork;
 using EducationPortalApp.Dtos.CourseContentDtos;
 using EducationPortalApp.Entities.CourseEntities;
+using EducationPortalApp.Shared.Services;
 using EducationPortalApp.Shared.Utilities.Response;
 using FluentValidation;
 using Microsoft.AspNetCore.Hosting;
@@ -22,7 +23,9 @@ namespace EducationPortalApp.Business.Services.Concrete
         private readonly IValidator<CourseContentUpdateDto> _courseContentUpdateDtoValidator;
         private readonly IHostingEnvironment _hostingEnvironment;
         private readonly IConfiguration _configuration;
-        public CourseContentService(IUow uow, ICourseContentRepository courseContentRepository, IMapper mapper, IValidator<CourseContentCreateDto> courseContentCreateDtoValidator, IValidator<CourseContentUpdateDto> courseContentUpdateDtoValidator, IHostingEnvironment hostingEnvironment, IConfiguration configuration)
+        private readonly IEnrollmentService _enrollmentService;
+        private readonly ISharedIdentityService _sharedIdentityService;
+        public CourseContentService(IUow uow, ICourseContentRepository courseContentRepository, IMapper mapper, IValidator<CourseContentCreateDto> courseContentCreateDtoValidator, IValidator<CourseContentUpdateDto> courseContentUpdateDtoValidator, IHostingEnvironment hostingEnvironment, IConfiguration configuration, IEnrollmentService enrollmentService, ISharedIdentityService sharedIdentityService)
         {
             _uow = uow;
             _courseContentRepository = courseContentRepository;
@@ -31,10 +34,16 @@ namespace EducationPortalApp.Business.Services.Concrete
             _courseContentUpdateDtoValidator = courseContentUpdateDtoValidator;
             _hostingEnvironment = hostingEnvironment;
             _configuration = configuration;
+            _enrollmentService = enrollmentService;
+            _sharedIdentityService = sharedIdentityService;
         }
 
         public async Task<CustomResponse<IEnumerable<CourseContentDto>>> GetAllCourseContentByCourseIdAsync(int courseId)
         {
+            var enrollmentResult = await _enrollmentService.GetEnrollmentByUserIdAndCourseIdAsync((int)_sharedIdentityService.GetUserId, courseId);
+            if (enrollmentResult.Data is null)
+                return CustomResponse<IEnumerable<CourseContentDto>>.Fail(CourseContentMessages.NOT_ENROLLED_IN_COURSE, ResponseStatusCode.BAD_REQUEST);
+
             IEnumerable<CourseContentDto> courseContentDtos = _mapper.Map<IEnumerable<CourseContentDto>>(await _courseContentRepository.GetAllFilterAsync(x => x.CourseId == courseId));
             return CustomResponse<IEnumerable<CourseContentDto>>.Success(courseContentDtos, ResponseStatusCode.OK);
         }
