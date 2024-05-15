@@ -1,4 +1,5 @@
 using EducationPortalApp.Web.Models;
+using EducationPortalApp.Web.Models.AppUserModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -13,9 +14,8 @@ namespace EducationPortalApp.Web.Controllers
             _logger = logger;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(AppUserRegisterInput appUserRegisterDto)
         {
-
             return View();
         }
 

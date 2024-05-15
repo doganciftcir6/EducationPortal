@@ -1,0 +1,102 @@
+﻿@using System.Text.Json
+@model AppUserRegisterInput
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f0f0f0;
+        }
+
+        .register-container {
+            width: 800px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h2 class="mb-4">Register</h2>
+        <div asp-validation-summary="ModelOnly"></div>
+        <form class="user" asp-controller="Auth" asp-action="Register" method="post">
+            @{
+                TempData["genders"] = JsonSerializer.Serialize(Model.Genders);
+            }
+            <div class="mb-3 row">
+                <div class="col-md-6">
+                    <label for="firstname" class="form-label">First Name</label>
+                    <input asp-for="@Model.Firstname" type="text" class="form-control" id="firstname" placeholder="Enter your first name">
+                    <span class="text-danger" asp-validation-for="@Model.Firstname"></span>
+                </div>
+                <div class="col-md-6">
+                    <label for="lastname" class="form-label">Last Name</label>
+                    <input asp-for="@Model.Lastname" type="text" class="form-control" id="lastname" placeholder="Enter your last name">
+                    <span class="text-danger" asp-validation-for="@Model.Lastname"></span>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <div class="col-md-6">
+                    <label for="phoneNumber" class="form-label">Phone Number</label>
+                    <input asp-for="@Model.PhoneNumber" type="tel" class="form-control" id="phoneNumber" placeholder="Enter your phone number">
+                    <span class="text-danger" asp-validation-for="@Model.PhoneNumber"></span>
+                </div>
+                <div class="col-md-6">
+                    <label for="email" class="form-label">Email</label>
+                    <input asp-for="@Model.Email" type="email" class="form-control" id="email" placeholder="Enter your email">
+                    <span class="text-danger" asp-validation-for="@Model.Email"></span>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <div class="col-md-6">
+                    <label for="username" class="form-label">Username</label>
+                    <input asp-for="@Model.Username" type="text" class="form-control" id="username" placeholder="Enter your username">
+                    <span class="text-danger" asp-validation-for="@Model.Username"></span>
+                </div>
+                <div class="col-md-6">
+                    <label for="password" class="form-label">Password</label>
+                    <input asp-for="@Model.Password" type="password" class="form-control" id="password" placeholder="Enter your password">
+                    <span class="text-danger" asp-validation-for="@Model.Password"></span>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <div class="col-md-6">
+                    <label for="confirmPassword" class="form-label">Confirm Password</label>
+                    <input asp-for="@Model.ConfirmPassword" type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password">
+                    <span class="text-danger" asp-validation-for="@Model.ConfirmPassword"></span>
+                </div>
+                <div class="col-md-6">
+                    <label for="gender" class="form-label">Gender</label>
+                    <select asp-items="@Model.Genders" asp-for="@Model.GenderId" class="form-select">
+                    </select>
+                    <span class="text-danger" asp-validation-for="@Model.GenderId"></span>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <div class="col-md-6">
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </div>
+                <div class="col-md-6 text-end">
+                    <p>Already have an account? <a asp-controller="Auth" asp-action="Login">Login here</a>.</p>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

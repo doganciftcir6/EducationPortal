@@ -9,10 +9,10 @@ namespace EducationPortalApp.API.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
-    public class AppUserContoller : CustomBaseController
+    public class AppUserController : CustomBaseController
     {
         private readonly IAppUserService _appUserService;
-        public AppUserContoller(IAppUserService appUserService)
+        public AppUserController(IAppUserService appUserService)
         {
             _appUserService = appUserService;
         }

@@ -8,7 +8,7 @@
         public const int BAD_REQUEST = 400;
         public const int INTERNAL_SERVER_ERROR = 500;
         public const int NO_CONTENT = 204;
-        public const int UNAUTHORİZED = 401;
-        public const int FORBİDDEN = 403;
+        public const int UNAUTHORIZED = 401;
+        public const int FORBIDDEN = 403;
     }
 }

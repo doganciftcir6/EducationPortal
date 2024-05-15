@@ -1,4 +1,6 @@
 using EducationPortalApp.Web.Helpers.HttpHelpers;
+using EducationPortalApp.Web.Services.Concrete;
+using EducationPortalApp.Web.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +17,8 @@ builder.Services.AddHttpClient("MyApiClient", opt =>
 
 builder.Services.AddScoped<HttpService>();
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IGenderService, GenderService>();
 
 //Auth - Cookie Based
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddCookie(JwtBearerDefaults.AuthenticationScheme, opt =>
@@ -25,7 +29,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddCo
     opt.Cookie.SameSite = SameSiteMode.Strict;
     opt.Cookie.HttpOnly = true;
     opt.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
-    opt.Cookie.Name = "eShopOnWebAppJwtCookie";
+    opt.Cookie.Name = "educationPortalJwtCookie";
 });
 
 var app = builder.Build();
