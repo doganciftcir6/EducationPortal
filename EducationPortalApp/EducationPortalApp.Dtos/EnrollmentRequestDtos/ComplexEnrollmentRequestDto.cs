@@ -1,7 +1,7 @@
 ﻿using EducationPortalApp.Dtos.AppUserDtos;
 using EducationPortalApp.Dtos.CourseDtos;
 
-namespace EducationPortalApp.Dtos.EnrollmentDtos
+namespace EducationPortalApp.Dtos.EnrollmentRequestDtos
 {
     public class ComplexEnrollmentRequestDto
     {

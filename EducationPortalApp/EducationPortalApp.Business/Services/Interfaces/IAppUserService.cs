@@ -5,7 +5,7 @@ namespace EducationPortalApp.Business.Services.Interfaces
 {
     public interface IAppUserService
     {
-        Task<CustomResponse<AppUserDto>> GetProfileAsync();
+        Task<CustomResponse<ProfileDto>> GetProfileAsync();
         Task<CustomResponse<IEnumerable<AppUserDto>>> GetAppUsersAsync();
         Task<CustomResponse<NoContent>> ChangePasswordAsync(AppUserChangePasswordDto appUserChangePassword);
         Task<CustomResponse<List<RoleDto>>> GetRolesAsync(string userId);

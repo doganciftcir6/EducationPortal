@@ -1,5 +1,4 @@
-﻿using EducationPortalApp.Dtos.EnrollmentDtos;
-using EducationPortalApp.Dtos.EnrollmentRequestDtos;
+﻿using EducationPortalApp.Dtos.EnrollmentRequestDtos;
 using EducationPortalApp.Shared.Utilities.Response;
 
 namespace EducationPortalApp.Business.Services.Interfaces

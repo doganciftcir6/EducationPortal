@@ -2,6 +2,7 @@
 using EducationPortalApp.Business.Helpers.Messages;
 using EducationPortalApp.Business.Services.Interfaces;
 using EducationPortalApp.Dtos.AppUserDtos;
+using EducationPortalApp.Dtos.EnrollmentDtos;
 using EducationPortalApp.Entities.UserEntities;
 using EducationPortalApp.Shared.Services;
 using EducationPortalApp.Shared.Utilities.Response;
@@ -19,7 +20,8 @@ namespace EducationPortalApp.Business.Services.Concrete
         private readonly IMapper _mapper;
         private readonly IValidator<AppUserChangePasswordDto> _changePasswordValidator;
         private readonly IValidator<RoleAssingSendDto> _roleAssingSendDto;
-        public AppUserService(UserManager<AppUser> userManager, RoleManager<AppRole> roleManager, ISharedIdentityService sharedIdentityService, IMapper mapper, IValidator<AppUserChangePasswordDto> changePasswordValidator, IValidator<RoleAssingSendDto> roleAssingSendDto)
+        private readonly IEnrollmentService _enrollmentService;
+        public AppUserService(UserManager<AppUser> userManager, RoleManager<AppRole> roleManager, ISharedIdentityService sharedIdentityService, IMapper mapper, IValidator<AppUserChangePasswordDto> changePasswordValidator, IValidator<RoleAssingSendDto> roleAssingSendDto, IEnrollmentService enrollmentService)
         {
             _userManager = userManager;
             _roleManager = roleManager;
@@ -27,6 +29,7 @@ namespace EducationPortalApp.Business.Services.Concrete
             _mapper = mapper;
             _changePasswordValidator = changePasswordValidator;
             _roleAssingSendDto = roleAssingSendDto;
+            _enrollmentService = enrollmentService;
         }
 
         public async Task<CustomResponse<NoContent>> AssingRoleAsync(RoleAssingSendDto roleAssingSendDto)
@@ -83,15 +86,27 @@ namespace EducationPortalApp.Business.Services.Concrete
             return CustomResponse<IEnumerable<AppUserDto>>.Success(appUserDto, ResponseStatusCode.OK);
         }
 
-        public async Task<CustomResponse<AppUserDto>> GetProfileAsync()
+        public async Task<CustomResponse<ProfileDto>> GetProfileAsync()
         {
-            var userInfo = await _userManager.Users.Include(u => u.Gender).FirstOrDefaultAsync(u => u.Id == _sharedIdentityService.GetUserId);
-            if (userInfo != null)
+            var userId = _sharedIdentityService.GetUserId;
+
+            //Kullanıcı bilgilerini al
+            var userInfo = await _userManager.Users.Include(u => u.Gender)
+                                                   .FirstOrDefaultAsync(u => u.Id == userId);
+            if (userInfo == null)
             {
-                var appUserDto = _mapper.Map<AppUserDto>(userInfo);
-                return CustomResponse<AppUserDto>.Success(appUserDto, ResponseStatusCode.OK);
+                return CustomResponse<ProfileDto>.Fail(AppUserMessages.NOT_FOUND_USER, ResponseStatusCode.NOT_FOUND);
             }
-            return CustomResponse<AppUserDto>.Fail(AppUserMessages.NOT_FOUND_USER, ResponseStatusCode.NOT_FOUND);
+
+            //Kullanıcının eğitimlerini al
+            var enrollments = await _enrollmentService.GetAllEnrollmentByUserAsync();
+            var profileDto = new ProfileDto
+            {
+                User = _mapper.Map<AppUserDto>(userInfo),
+                Enrollments = _mapper.Map<List<EnrollmentDto>>(enrollments.Data)
+            };
+
+            return CustomResponse<ProfileDto>.Success(profileDto, ResponseStatusCode.OK);
         }
 
         public async Task<CustomResponse<List<RoleDto>>> GetRolesAsync(string userId)
