@@ -55,10 +55,9 @@ namespace EducationPortalApp.API.Controllers
             if (courseContentResult.Errors != null)
                 return BadRequest(courseContentResult.Errors);
 
-            var enrollmentUpdated = await _enrollmentService.UpdateEnrollmentCompletionStatusAsync(courseContentResult.Data.Course.Id);
+            var enrollmentUpdated = await _enrollmentService.UpdateEnrollmentCompletionStatusAsync(courseContentId, courseContentResult.Data.Course.Id);
             if (!enrollmentUpdated)
             {
-                // Güncelleme başarısız olduysa, uygun bir hata yanıtı döndür
                 return BadRequest("Failed to update enrollment completion status.");
             }
             return Ok();

@@ -133,7 +133,7 @@
                                 {
                                     <tr>
                                         <td>@enrollment.Course.Name</td>
-                                        <td>@enrollment.Course.Description</td>
+                                        <td>@(enrollment.Course.Description.Length > 20 ? $"{enrollment.Course.Description.Substring(0, 20)}..." : enrollment.Course.Description)</td>
                                         <td>@enrollment.Course.Instructor</td>
                                         <td>@(enrollment.IsCompleted ? "Completed" : "In Progress")</td>
                                     </tr>

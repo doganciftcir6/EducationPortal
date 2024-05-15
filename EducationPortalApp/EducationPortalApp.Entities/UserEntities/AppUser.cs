@@ -1,4 +1,5 @@
-﻿using EducationPortalApp.Entities.EnrollmentEntities;
+﻿using EducationPortalApp.Entities.CourseEntities;
+using EducationPortalApp.Entities.EnrollmentEntities;
 using Microsoft.AspNetCore.Identity;
 
 namespace EducationPortalApp.Entities.UserEntities
@@ -13,5 +14,6 @@ namespace EducationPortalApp.Entities.UserEntities
 
         public List<Enrollment> Enrollments { get; set; }
         public List<EnrollmentRequest> EnrollmentRequests { get; set; }
+        public List<UserCourseContentStatus> UserCourseContentStatuses { get; set; }
     }
 }

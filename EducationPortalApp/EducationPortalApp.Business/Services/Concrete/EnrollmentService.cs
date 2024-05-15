@@ -90,18 +90,18 @@ namespace EducationPortalApp.Business.Services.Concrete
             return CustomResponse<NoContent>.Fail(EnrollmentMessages.NOT_FOUND_ENROLLMENT, ResponseStatusCode.NOT_FOUND);
         }
 
-        public async Task<bool> UpdateEnrollmentCompletionStatusAsync(int courseId)
+        public async Task<bool> UpdateEnrollmentCompletionStatusAsync(int courseContentId, int courseId)
         {
-            var courseContents = await _uow.GetRepository<CourseContent>().GetAllFilterAsync(x => x.CourseId == courseId);
+            var courseContentStatuses = await _uow.GetRepository<UserCourseContentStatus>().GetAllFilterAsync(x => x.CourseContentId == courseContentId);
             var enrollment = await _uow.GetRepository<Enrollment>().GetByFilterAsync(x => x.CourseId == courseId && x.AppUserId == _sharedIdentityService.GetUserId);
 
-            if (courseContents == null || enrollment == null)
+            if (courseContentStatuses == null || enrollment == null)
             {
                 return false;
             }
 
             //Tüm kurs içeriği işaretlenmiş mi kontrol et
-            bool allChecked = courseContents.All(cc => cc.Status);
+            bool allChecked = courseContentStatuses.All(cc => cc.IsCompleted);
 
             //Eğer tüm kurs içeriği işaretlenmişse, IsCompleted alanını true olarak güncelle
             if (allChecked)

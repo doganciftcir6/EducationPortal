@@ -3,12 +3,48 @@
   "WorkspaceRootPath": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{30FFECDF-799F-4C06-8417-4671D77F4B55}|EducationPortalApp.Business\\EducationPortalApp.Business.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\educationportalapp.business\\services\\concrete\\enrollmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30FFECDF-799F-4C06-8417-4671D77F4B55}|EducationPortalApp.Business\\EducationPortalApp.Business.csproj|solutionrelative:educationportalapp.business\\services\\concrete\\enrollmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F78CA1E8-0111-40D2-BFE7-BA2C226B25E3}|EducationPortalApp.Entities\\EducationPortalApp.Entities.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\educationportalapp.entities\\courseentities\\usercoursecontentstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F78CA1E8-0111-40D2-BFE7-BA2C226B25E3}|EducationPortalApp.Entities\\EducationPortalApp.Entities.csproj|solutionrelative:educationportalapp.entities\\courseentities\\usercoursecontentstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABE4BE1A-6B77-45B2-884A-E457028D28C8}|Frontends\\EducationPortalApp.Web\\EducationPortalApp.Web.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\frontends\\educationportalapp.web\\views\\appuser\\profiledetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ABE4BE1A-6B77-45B2-884A-E457028D28C8}|Frontends\\EducationPortalApp.Web\\EducationPortalApp.Web.csproj|solutionrelative:frontends\\educationportalapp.web\\views\\appuser\\profiledetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56A15D32-AD5F-4C8F-81EA-5C8DEEFBA9D8}|EducationPortalApp.API\\EducationPortalApp.API.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\educationportalapp.api\\controllers\\coursecontentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56A15D32-AD5F-4C8F-81EA-5C8DEEFBA9D8}|EducationPortalApp.API\\EducationPortalApp.API.csproj|solutionrelative:educationportalapp.api\\controllers\\coursecontentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{30FFECDF-799F-4C06-8417-4671D77F4B55}|EducationPortalApp.Business\\EducationPortalApp.Business.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\educationportalapp.business\\services\\interfaces\\ienrollmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{30FFECDF-799F-4C06-8417-4671D77F4B55}|EducationPortalApp.Business\\EducationPortalApp.Business.csproj|solutionrelative:educationportalapp.business\\services\\interfaces\\ienrollmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30FFECDF-799F-4C06-8417-4671D77F4B55}|EducationPortalApp.Business\\EducationPortalApp.Business.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\educationportalapp.business\\services\\concrete\\enrollmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30FFECDF-799F-4C06-8417-4671D77F4B55}|EducationPortalApp.Business\\EducationPortalApp.Business.csproj|solutionrelative:educationportalapp.business\\services\\concrete\\enrollmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7840FA4-D1EF-49BE-A206-03120E68F81E}|EducationPortalApp.Dtos\\EducationPortalApp.Dtos.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\educationportalapp.dtos\\coursecontentdtos\\coursecontentupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7840FA4-D1EF-49BE-A206-03120E68F81E}|EducationPortalApp.Dtos\\EducationPortalApp.Dtos.csproj|solutionrelative:educationportalapp.dtos\\coursecontentdtos\\coursecontentupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7840FA4-D1EF-49BE-A206-03120E68F81E}|EducationPortalApp.Dtos\\EducationPortalApp.Dtos.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\educationportalapp.dtos\\coursecontentdtos\\coursecontentcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7840FA4-D1EF-49BE-A206-03120E68F81E}|EducationPortalApp.Dtos\\EducationPortalApp.Dtos.csproj|solutionrelative:educationportalapp.dtos\\coursecontentdtos\\coursecontentcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7840FA4-D1EF-49BE-A206-03120E68F81E}|EducationPortalApp.Dtos\\EducationPortalApp.Dtos.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\educationportalapp.dtos\\coursecontentdtos\\coursecontentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7840FA4-D1EF-49BE-A206-03120E68F81E}|EducationPortalApp.Dtos\\EducationPortalApp.Dtos.csproj|solutionrelative:educationportalapp.dtos\\coursecontentdtos\\coursecontentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F78CA1E8-0111-40D2-BFE7-BA2C226B25E3}|EducationPortalApp.Entities\\EducationPortalApp.Entities.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\educationportalapp.entities\\courseentities\\coursecontent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F78CA1E8-0111-40D2-BFE7-BA2C226B25E3}|EducationPortalApp.Entities\\EducationPortalApp.Entities.csproj|solutionrelative:educationportalapp.entities\\courseentities\\coursecontent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F78CA1E8-0111-40D2-BFE7-BA2C226B25E3}|EducationPortalApp.Entities\\EducationPortalApp.Entities.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\educationportalapp.entities\\userentities\\appuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F78CA1E8-0111-40D2-BFE7-BA2C226B25E3}|EducationPortalApp.Entities\\EducationPortalApp.Entities.csproj|solutionrelative:educationportalapp.entities\\userentities\\appuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1DA9379-33E8-4B25-AAEF-496EA48B1019}|EducationPortalApp.DataAccess\\EducationPortalApp.DataAccess.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\educationportalapp.dataaccess\\contexts\\entityframework\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1DA9379-33E8-4B25-AAEF-496EA48B1019}|EducationPortalApp.DataAccess\\EducationPortalApp.DataAccess.csproj|solutionrelative:educationportalapp.dataaccess\\contexts\\entityframework\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F78CA1E8-0111-40D2-BFE7-BA2C226B25E3}|EducationPortalApp.Entities\\EducationPortalApp.Entities.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\educationportalapp.entities\\enrollmententities\\enrollment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -17,42 +53,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{D7840FA4-D1EF-49BE-A206-03120E68F81E}|EducationPortalApp.Dtos\\EducationPortalApp.Dtos.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\educationportalapp.dtos\\enrollmentdtos\\enrollmentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D7840FA4-D1EF-49BE-A206-03120E68F81E}|EducationPortalApp.Dtos\\EducationPortalApp.Dtos.csproj|solutionrelative:educationportalapp.dtos\\enrollmentdtos\\enrollmentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{56A15D32-AD5F-4C8F-81EA-5C8DEEFBA9D8}|EducationPortalApp.API\\EducationPortalApp.API.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\educationportalapp.api\\controllers\\coursecontentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{56A15D32-AD5F-4C8F-81EA-5C8DEEFBA9D8}|EducationPortalApp.API\\EducationPortalApp.API.csproj|solutionrelative:educationportalapp.api\\controllers\\coursecontentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F78CA1E8-0111-40D2-BFE7-BA2C226B25E3}|EducationPortalApp.Entities\\EducationPortalApp.Entities.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\educationportalapp.entities\\courseentities\\coursecontent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F78CA1E8-0111-40D2-BFE7-BA2C226B25E3}|EducationPortalApp.Entities\\EducationPortalApp.Entities.csproj|solutionrelative:educationportalapp.entities\\courseentities\\coursecontent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ABE4BE1A-6B77-45B2-884A-E457028D28C8}|Frontends\\EducationPortalApp.Web\\EducationPortalApp.Web.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\frontends\\educationportalapp.web\\views\\appuser\\profiledetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{ABE4BE1A-6B77-45B2-884A-E457028D28C8}|Frontends\\EducationPortalApp.Web\\EducationPortalApp.Web.csproj|solutionrelative:frontends\\educationportalapp.web\\views\\appuser\\profiledetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ABE4BE1A-6B77-45B2-884A-E457028D28C8}|Frontends\\EducationPortalApp.Web\\EducationPortalApp.Web.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\frontends\\educationportalapp.web\\controllers\\appusercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABE4BE1A-6B77-45B2-884A-E457028D28C8}|Frontends\\EducationPortalApp.Web\\EducationPortalApp.Web.csproj|solutionrelative:frontends\\educationportalapp.web\\controllers\\appusercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ABE4BE1A-6B77-45B2-884A-E457028D28C8}|Frontends\\EducationPortalApp.Web\\EducationPortalApp.Web.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\frontends\\educationportalapp.web\\services\\concrete\\appuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABE4BE1A-6B77-45B2-884A-E457028D28C8}|Frontends\\EducationPortalApp.Web\\EducationPortalApp.Web.csproj|solutionrelative:frontends\\educationportalapp.web\\services\\concrete\\appuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ABE4BE1A-6B77-45B2-884A-E457028D28C8}|Frontends\\EducationPortalApp.Web\\EducationPortalApp.Web.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\frontends\\educationportalapp.web\\views\\appuser\\changepassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{ABE4BE1A-6B77-45B2-884A-E457028D28C8}|Frontends\\EducationPortalApp.Web\\EducationPortalApp.Web.csproj|solutionrelative:frontends\\educationportalapp.web\\views\\appuser\\changepassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ABE4BE1A-6B77-45B2-884A-E457028D28C8}|Frontends\\EducationPortalApp.Web\\EducationPortalApp.Web.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\frontends\\educationportalapp.web\\services\\interfaces\\iappuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABE4BE1A-6B77-45B2-884A-E457028D28C8}|Frontends\\EducationPortalApp.Web\\EducationPortalApp.Web.csproj|solutionrelative:frontends\\educationportalapp.web\\services\\interfaces\\iappuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ABE4BE1A-6B77-45B2-884A-E457028D28C8}|Frontends\\EducationPortalApp.Web\\EducationPortalApp.Web.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\frontends\\educationportalapp.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABE4BE1A-6B77-45B2-884A-E457028D28C8}|Frontends\\EducationPortalApp.Web\\EducationPortalApp.Web.csproj|solutionrelative:frontends\\educationportalapp.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ABE4BE1A-6B77-45B2-884A-E457028D28C8}|Frontends\\EducationPortalApp.Web\\EducationPortalApp.Web.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\frontends\\educationportalapp.web\\views\\auth\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{ABE4BE1A-6B77-45B2-884A-E457028D28C8}|Frontends\\EducationPortalApp.Web\\EducationPortalApp.Web.csproj|solutionrelative:frontends\\educationportalapp.web\\views\\auth\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -67,45 +67,149 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "EnrollmentService.cs",
-              "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Business\\Services\\Concrete\\EnrollmentService.cs",
-              "RelativeDocumentMoniker": "EducationPortalApp.Business\\Services\\Concrete\\EnrollmentService.cs",
-              "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Business\\Services\\Concrete\\EnrollmentService.cs",
-              "RelativeToolTip": "EducationPortalApp.Business\\Services\\Concrete\\EnrollmentService.cs",
-              "ViewState": "AQIAAFsAAAAAAAAAAAAAAFwAAAAGAAAA",
+              "Title": "UserCourseContentStatus.cs",
+              "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Entities\\CourseEntities\\UserCourseContentStatus.cs",
+              "RelativeDocumentMoniker": "EducationPortalApp.Entities\\CourseEntities\\UserCourseContentStatus.cs",
+              "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Entities\\CourseEntities\\UserCourseContentStatus.cs",
+              "RelativeToolTip": "EducationPortalApp.Entities\\CourseEntities\\UserCourseContentStatus.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-15T18:44:53.485Z",
+              "WhenOpened": "2024-05-15T19:37:52.657Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "ProfileDetails.cshtml",
+              "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\Frontends\\EducationPortalApp.Web\\Views\\AppUser\\ProfileDetails.cshtml",
+              "RelativeDocumentMoniker": "Frontends\\EducationPortalApp.Web\\Views\\AppUser\\ProfileDetails.cshtml",
+              "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\Frontends\\EducationPortalApp.Web\\Views\\AppUser\\ProfileDetails.cshtml",
+              "RelativeToolTip": "Frontends\\EducationPortalApp.Web\\Views\\AppUser\\ProfileDetails.cshtml",
+              "ViewState": "AQIAAGwAAAAAAAAAAAAcwIMAAABOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-15T19:32:10.678Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CourseContentUpdateDto.cs",
+              "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Dtos\\CourseContentDtos\\CourseContentUpdateDto.cs",
+              "RelativeDocumentMoniker": "EducationPortalApp.Dtos\\CourseContentDtos\\CourseContentUpdateDto.cs",
+              "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Dtos\\CourseContentDtos\\CourseContentUpdateDto.cs",
+              "RelativeToolTip": "EducationPortalApp.Dtos\\CourseContentDtos\\CourseContentUpdateDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-15T19:19:00.329Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CourseContentCreateDto.cs",
+              "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Dtos\\CourseContentDtos\\CourseContentCreateDto.cs",
+              "RelativeDocumentMoniker": "EducationPortalApp.Dtos\\CourseContentDtos\\CourseContentCreateDto.cs",
+              "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Dtos\\CourseContentDtos\\CourseContentCreateDto.cs",
+              "RelativeToolTip": "EducationPortalApp.Dtos\\CourseContentDtos\\CourseContentCreateDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-15T19:18:58.6Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CourseContentDto.cs",
+              "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Dtos\\CourseContentDtos\\CourseContentDto.cs",
+              "RelativeDocumentMoniker": "EducationPortalApp.Dtos\\CourseContentDtos\\CourseContentDto.cs",
+              "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Dtos\\CourseContentDtos\\CourseContentDto.cs",
+              "RelativeToolTip": "EducationPortalApp.Dtos\\CourseContentDtos\\CourseContentDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-15T19:18:53.109Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AppUser.cs",
+              "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Entities\\UserEntities\\AppUser.cs",
+              "RelativeDocumentMoniker": "EducationPortalApp.Entities\\UserEntities\\AppUser.cs",
+              "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Entities\\UserEntities\\AppUser.cs",
+              "RelativeToolTip": "EducationPortalApp.Entities\\UserEntities\\AppUser.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAABUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-15T18:59:26.553Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "IEnrollmentService.cs",
               "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Business\\Services\\Interfaces\\IEnrollmentService.cs",
               "RelativeDocumentMoniker": "EducationPortalApp.Business\\Services\\Interfaces\\IEnrollmentService.cs",
               "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Business\\Services\\Interfaces\\IEnrollmentService.cs",
               "RelativeToolTip": "EducationPortalApp.Business\\Services\\Interfaces\\IEnrollmentService.cs",
-              "ViewState": "AQIAAAcAAAAAAAAAAAA2wAAAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAwAAABMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-15T18:44:47.942Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Enrollment.cs",
-              "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Entities\\EnrollmentEntities\\Enrollment.cs",
-              "RelativeDocumentMoniker": "EducationPortalApp.Entities\\EnrollmentEntities\\Enrollment.cs",
-              "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Entities\\EnrollmentEntities\\Enrollment.cs",
-              "RelativeToolTip": "EducationPortalApp.Entities\\EnrollmentEntities\\Enrollment.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAAAAAA",
+              "DocumentIndex": 10,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.DataAccess\\Contexts\\EntityFramework\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "EducationPortalApp.DataAccess\\Contexts\\EntityFramework\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.DataAccess\\Contexts\\EntityFramework\\AppDbContext.cs",
+              "RelativeToolTip": "EducationPortalApp.DataAccess\\Contexts\\EntityFramework\\AppDbContext.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABcAAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-15T18:43:29.03Z",
+              "WhenOpened": "2024-05-15T18:55:36.762Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
+              "Title": "EnrollmentService.cs",
+              "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Business\\Services\\Concrete\\EnrollmentService.cs",
+              "RelativeDocumentMoniker": "EducationPortalApp.Business\\Services\\Concrete\\EnrollmentService.cs",
+              "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Business\\Services\\Concrete\\EnrollmentService.cs",
+              "RelativeToolTip": "EducationPortalApp.Business\\Services\\Concrete\\EnrollmentService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-15T18:44:53.485Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CourseContentController.cs",
+              "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.API\\Controllers\\CourseContentController.cs",
+              "RelativeDocumentMoniker": "EducationPortalApp.API\\Controllers\\CourseContentController.cs",
+              "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.API\\Controllers\\CourseContentController.cs",
+              "RelativeToolTip": "EducationPortalApp.API\\Controllers\\CourseContentController.cs",
+              "ViewState": "AQIAACcAAAAAAAAAAAAkwDEAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-15T18:32:54.099Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CourseContent.cs",
+              "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Entities\\CourseEntities\\CourseContent.cs",
+              "RelativeDocumentMoniker": "EducationPortalApp.Entities\\CourseEntities\\CourseContent.cs",
+              "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Entities\\CourseEntities\\CourseContent.cs",
+              "RelativeToolTip": "EducationPortalApp.Entities\\CourseEntities\\CourseContent.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-15T18:31:55.748Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "EnrollmentDto.cs",
               "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Dtos\\EnrollmentDtos\\EnrollmentDto.cs",
               "RelativeDocumentMoniker": "EducationPortalApp.Dtos\\EnrollmentDtos\\EnrollmentDto.cs",
@@ -118,119 +222,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CourseContentController.cs",
-              "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.API\\Controllers\\CourseContentController.cs",
-              "RelativeDocumentMoniker": "EducationPortalApp.API\\Controllers\\CourseContentController.cs",
-              "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.API\\Controllers\\CourseContentController.cs",
-              "RelativeToolTip": "EducationPortalApp.API\\Controllers\\CourseContentController.cs",
-              "ViewState": "AQIAACgAAAAAAAAAAAA3wEAAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-15T18:32:54.099Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CourseContent.cs",
-              "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Entities\\CourseEntities\\CourseContent.cs",
-              "RelativeDocumentMoniker": "EducationPortalApp.Entities\\CourseEntities\\CourseContent.cs",
-              "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Entities\\CourseEntities\\CourseContent.cs",
-              "RelativeToolTip": "EducationPortalApp.Entities\\CourseEntities\\CourseContent.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-15T18:31:55.748Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ProfileDetails.cshtml",
-              "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\Frontends\\EducationPortalApp.Web\\Views\\AppUser\\ProfileDetails.cshtml",
-              "RelativeDocumentMoniker": "Frontends\\EducationPortalApp.Web\\Views\\AppUser\\ProfileDetails.cshtml",
-              "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\Frontends\\EducationPortalApp.Web\\Views\\AppUser\\ProfileDetails.cshtml",
-              "RelativeToolTip": "Frontends\\EducationPortalApp.Web\\Views\\AppUser\\ProfileDetails.cshtml",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAAIwAAAAkAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-15T17:30:04.608Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ChangePassword.cshtml",
-              "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\Frontends\\EducationPortalApp.Web\\Views\\AppUser\\ChangePassword.cshtml",
-              "RelativeDocumentMoniker": "Frontends\\EducationPortalApp.Web\\Views\\AppUser\\ChangePassword.cshtml",
-              "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\Frontends\\EducationPortalApp.Web\\Views\\AppUser\\ChangePassword.cshtml",
-              "RelativeToolTip": "Frontends\\EducationPortalApp.Web\\Views\\AppUser\\ChangePassword.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAhAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-15T17:29:51.172Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "AppUserController.cs",
-              "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\Frontends\\EducationPortalApp.Web\\Controllers\\AppUserController.cs",
-              "RelativeDocumentMoniker": "Frontends\\EducationPortalApp.Web\\Controllers\\AppUserController.cs",
-              "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\Frontends\\EducationPortalApp.Web\\Controllers\\AppUserController.cs",
-              "RelativeToolTip": "Frontends\\EducationPortalApp.Web\\Controllers\\AppUserController.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAQwCQAAAAtAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-15T17:25:52.77Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\Frontends\\EducationPortalApp.Web\\Program.cs",
-              "RelativeDocumentMoniker": "Frontends\\EducationPortalApp.Web\\Program.cs",
-              "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\Frontends\\EducationPortalApp.Web\\Program.cs",
-              "RelativeToolTip": "Frontends\\EducationPortalApp.Web\\Program.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABUAAAA+AAAA",
+              "Title": "Enrollment.cs",
+              "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Entities\\EnrollmentEntities\\Enrollment.cs",
+              "RelativeDocumentMoniker": "EducationPortalApp.Entities\\EnrollmentEntities\\Enrollment.cs",
+              "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\EducationPortalApp.Entities\\EnrollmentEntities\\Enrollment.cs",
+              "RelativeToolTip": "EducationPortalApp.Entities\\EnrollmentEntities\\Enrollment.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-15T17:17:30.388Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "AppUserService.cs",
-              "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\Frontends\\EducationPortalApp.Web\\Services\\Concrete\\AppUserService.cs",
-              "RelativeDocumentMoniker": "Frontends\\EducationPortalApp.Web\\Services\\Concrete\\AppUserService.cs",
-              "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\Frontends\\EducationPortalApp.Web\\Services\\Concrete\\AppUserService.cs",
-              "RelativeToolTip": "Frontends\\EducationPortalApp.Web\\Services\\Concrete\\AppUserService.cs",
-              "ViewState": "AQIAAAoAAAAAAAAAAAAAABEAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-15T17:17:06.492Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "IAppUserService.cs",
-              "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\Frontends\\EducationPortalApp.Web\\Services\\Interfaces\\IAppUserService.cs",
-              "RelativeDocumentMoniker": "Frontends\\EducationPortalApp.Web\\Services\\Interfaces\\IAppUserService.cs",
-              "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\Frontends\\EducationPortalApp.Web\\Services\\Interfaces\\IAppUserService.cs",
-              "RelativeToolTip": "Frontends\\EducationPortalApp.Web\\Services\\Interfaces\\IAppUserService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAABBAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-15T17:17:01.214Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\Frontends\\EducationPortalApp.Web\\Views\\Auth\\Login.cshtml",
-              "RelativeDocumentMoniker": "Frontends\\EducationPortalApp.Web\\Views\\Auth\\Login.cshtml",
-              "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\Frontends\\EducationPortalApp.Web\\Views\\Auth\\Login.cshtml",
-              "RelativeToolTip": "Frontends\\EducationPortalApp.Web\\Views\\Auth\\Login.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAUAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-15T15:51:41.831Z",
+              "WhenOpened": "2024-05-15T18:43:29.03Z",
               "EditorCaption": ""
             }
           ]

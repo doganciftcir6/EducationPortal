@@ -10,6 +10,6 @@ namespace EducationPortalApp.Business.Services.Interfaces
         Task<CustomResponse<EnrollmentDto>> GetEnrollmentByUserIdAndCourseIdAsync(int userId, int courseId);
         Task<CustomResponse<NoContent>> InsertEnrollmentAsync(EnrollmentCreateDto enrollmentCreateDto, int enrollmentRequestId);
         Task<CustomResponse<NoContent>> RemoveEnrollmentAsync(int enrollmentId, int enrollmentRequestId);
-        Task<bool> UpdateEnrollmentCompletionStatusAsync(int courseId);
+        Task<bool> UpdateEnrollmentCompletionStatusAsync(int courseContentId, int courseId);
     }
 }

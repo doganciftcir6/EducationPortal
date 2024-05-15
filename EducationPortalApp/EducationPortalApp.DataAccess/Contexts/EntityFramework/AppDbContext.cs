@@ -22,6 +22,7 @@ namespace EducationPortalApp.DataAccess.Contexts.EntityFramework
         public DbSet<EnrollmentRequest> EnrollmentRequests { get; set; }
         public DbSet<EnrollmentRequestStatus> EnrollmentRequestStatuses { get; set; }
         public DbSet<Gender> Genders { get; set; }
+        public DbSet<UserCourseContentStatus> UserCourseContentStatuses { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

@@ -125,21 +125,28 @@ namespace EducationPortalApp.Business.Services.Concrete
 
         public async Task<CustomResponse<NoContent>> UpdateCourseContentStatusAsync(int courseContentId, bool isChecked)
         {
-            var courseContent = await _uow.GetRepository<CourseContent>().AsNoTrackingGetByFilterAsync(x => x.Id == courseContentId);
+            var userCourseContentStatus = await _uow.GetRepository<UserCourseContentStatus>()
+            .GetByFilterAsync(x => x.AppUserId == _sharedIdentityService.GetUserId && x.CourseContentId == courseContentId);
 
-            if (isChecked)
+            if (userCourseContentStatus == null)
             {
-                //checkbox işaretlendiyse yani true geldiyse
-                courseContent.Status = true;
+                //Kullanıcı için bu kurs içeriği durumu henüz oluşturulmamışsa yeni bir kayıt oluştur
+                userCourseContentStatus = new UserCourseContentStatus
+                {
+                    AppUserId = (int)_sharedIdentityService.GetUserId,
+                    CourseContentId = courseContentId,
+                    IsCompleted = isChecked
+                };
+                await _uow.GetRepository<UserCourseContentStatus>().InsertAsync(userCourseContentStatus);
             }
             else
             {
-                courseContent.Status = false;
+                //Kullanıcı için bu kurs içeriği durumunu güncelle
+                userCourseContentStatus.IsCompleted = isChecked;
+                _uow.GetRepository<UserCourseContentStatus>().Update(userCourseContentStatus);
             }
 
-            _uow.GetRepository<CourseContent>().Update(courseContent);
             await _uow.SaveChangesAsync();
-
             return CustomResponse<NoContent>.Success(ResponseStatusCode.OK);
         }
     }

@@ -7,7 +7,6 @@ namespace EducationPortalApp.Dtos.CourseContentDtos
         public int Id { get; set; }
         public string Name { get; set; }
         public string FilePath { get; set; }
-        public bool Status { get; set; }
 
         public CourseDto Course { get; set; }
 
