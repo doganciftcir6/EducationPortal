@@ -1,3 +1,4 @@
+using EducationPortalApp.Web.Helpers.HttpHelpers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,9 @@ builder.Services.AddHttpClient("MyApiClient", opt =>
 {
     opt.BaseAddress = new Uri(baseApiAddress);
 });
+
+builder.Services.AddScoped<HttpService>();
+builder.Services.AddHttpContextAccessor();
 
 //Auth - Cookie Based
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddCookie(JwtBearerDefaults.AuthenticationScheme, opt =>

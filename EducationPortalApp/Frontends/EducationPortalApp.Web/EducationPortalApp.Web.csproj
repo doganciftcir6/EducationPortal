@@ -10,4 +10,13 @@
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.14" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\EducationPortalApp.Shared\EducationPortalApp.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\Concrete\" />
+    <Folder Include="Services\Interfaces\" />
+  </ItemGroup>
+
 </Project>
