@@ -19,6 +19,7 @@ builder.Services.AddScoped<HttpService>();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IGenderService, GenderService>();
+builder.Services.AddScoped<IAppUserService, AppUserService>();
 
 //Auth - Cookie Based
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddCookie(JwtBearerDefaults.AuthenticationScheme, opt =>
