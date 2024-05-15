@@ -11,6 +11,7 @@ namespace EducationPortalApp.Business.Mapping.AutoMapper
             CreateMap<AppUser, AppUserRegisterDto>().ReverseMap();
             CreateMap<AppUser, AppUserLoginDto>().ReverseMap();
             CreateMap<AppUser, AppUserDto>().ForMember(dest => dest.Gender, opt => opt.MapFrom(src => src.Gender != null ? src.Gender.Definition : null)).ReverseMap();
+            CreateMap<AppUser, AppUserDtoForEnrollmentRQ>().ReverseMap();
         }
     }
 }

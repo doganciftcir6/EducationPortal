@@ -12,6 +12,7 @@ namespace EducationPortalApp.Business.Mapping.AutoMapper
             CreateMap<Course, CoursesDto>().ReverseMap();
             CreateMap<Course, CourseCreateDto>().ReverseMap();
             CreateMap<Course, CourseUpdateDto>().ReverseMap();
+            CreateMap<Course, CourseDtoForEnrollmentRQ>().ReverseMap();
         }
     }
 }
