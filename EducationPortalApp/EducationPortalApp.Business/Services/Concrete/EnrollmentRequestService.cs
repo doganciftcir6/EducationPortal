@@ -3,6 +3,7 @@ using EducationPortalApp.Business.Helpers.Messages;
 using EducationPortalApp.Business.Services.Interfaces;
 using EducationPortalApp.DataAccess.Repositories.Interfaces;
 using EducationPortalApp.DataAccess.UnitOfWork;
+using EducationPortalApp.Dtos.EnrollmentDtos;
 using EducationPortalApp.Dtos.EnrollmentRequestDtos;
 using EducationPortalApp.Entities.EnrollmentEntities;
 using EducationPortalApp.Shared.Services;
@@ -30,12 +31,12 @@ namespace EducationPortalApp.Business.Services.Concrete
             _sharedIdentityService = sharedIdentityService;
         }
 
-        public async Task<CustomResponse<IEnumerable<EnrollmentRequestDto>>> GetAllEnrollmentRequestAsync()
+        public async Task<CustomResponse<IEnumerable<ComplexEnrollmentRequestDto>>> GetAllEnrollmentRequestAsync()
         {
             var query = _uow.GetRepository<EnrollmentRequest>().GetQuery();
             IEnumerable<EnrollmentRequest> enrollmentRequests = await query.Include(x => x.Course).Include(x => x.AppUser).Include(x => x.EnrollmentRequestStatus).ToListAsync();
-            IEnumerable<EnrollmentRequestDto> enrollmentRequestDtos = _mapper.Map<IEnumerable<EnrollmentRequestDto>>(enrollmentRequests);
-            return CustomResponse<IEnumerable<EnrollmentRequestDto>>.Success(enrollmentRequestDtos, ResponseStatusCode.OK);
+            IEnumerable<ComplexEnrollmentRequestDto> enrollmentRequestDtos = _mapper.Map<IEnumerable<ComplexEnrollmentRequestDto>>(enrollmentRequests);
+            return CustomResponse<IEnumerable<ComplexEnrollmentRequestDto>>.Success(enrollmentRequestDtos, ResponseStatusCode.OK);
         }
 
         public async Task<CustomResponse<IEnumerable<EnrollmentRequestDto>>> GetAllEnrollmentRequestByUserAsync()

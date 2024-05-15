@@ -1,4 +1,4 @@
-﻿using EducationPortalApp.Dtos.CourseContentDtos;
+﻿using EducationPortalApp.Dtos.EnrollmentDtos;
 using EducationPortalApp.Dtos.EnrollmentRequestDtos;
 using EducationPortalApp.Shared.Utilities.Response;
 
@@ -6,7 +6,7 @@ namespace EducationPortalApp.Business.Services.Interfaces
 {
     public interface IEnrollmentRequestService
     {
-        Task<CustomResponse<IEnumerable<EnrollmentRequestDto>>> GetAllEnrollmentRequestAsync();
+        Task<CustomResponse<IEnumerable<ComplexEnrollmentRequestDto>>> GetAllEnrollmentRequestAsync();
         Task<CustomResponse<IEnumerable<EnrollmentRequestDto>>> GetAllEnrollmentRequestByUserAsync();
         Task<CustomResponse<NoContent>> InsertEnrollmentRequestAsync(EnrollmentRequestCreateDto enrollmentRequestCreateDto);
         Task<CustomResponse<NoContent>> UpdateEnrollmentRequestAsync(EnrollmentRequestUpdateDto enrollmentRequestUpdateDto);
