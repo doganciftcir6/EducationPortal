@@ -107,8 +107,12 @@ namespace EducationPortalApp.Business.Services.Concrete
             if (allChecked)
             {
                 enrollment.IsCompleted = true;
-                await _uow.SaveChangesAsync();
             }
+            else
+            {
+                enrollment.IsCompleted = false;
+            }
+            await _uow.SaveChangesAsync();
 
             return true;
         }
