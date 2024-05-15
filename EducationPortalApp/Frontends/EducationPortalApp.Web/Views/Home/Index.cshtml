@@ -1,8 +1,39 @@
-﻿@{
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+
+@model IPagedList<CoursesVM>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container-fluid">
+    <h2 class="text-center mb-4">Products</h2>
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow">
+                    <img src="@item.Picture" class="card-img-top" alt="Product Image" style="height: 250px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <h4 class="text-primary">@item.CostPerDay TL / Perday</h4>
+                        <a class="btn btn-success btn-block" asp-controller="Home" asp-action="CourseDetails" asp-route-courseId="@item.Id">Details</a>
+                    </div>
+                </div>
+            </div>
+        }
+        <div style="margin-left:815px;">
+            @Html.PagedListPager(
+                     (IPagedList)Model,
+                     page => Url.Action("Index", new { page }),
+                     new X.PagedList.Web.Common.PagedListRenderOptions
+            {
+                ContainerDivClasses = new[] { "navigation" },
+                LiElementClasses = new[] { "page-item" },
+                PageClasses = new[] { "page-link" },
+                DisplayEllipsesWhenNotShowingAllPageNumbers = false,
+            })
+        </div>
+    </div>
 </div>

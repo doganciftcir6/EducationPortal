@@ -1,33 +1,35 @@
-using EducationPortalApp.Web.Models;
-using EducationPortalApp.Web.Models.AppUserModels;
+using EducationPortalApp.Web.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
+using X.PagedList;
 
 namespace EducationPortalApp.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly ICourseService _courseService;
+        public HomeController(ICourseService courseService)
         {
-            _logger = logger;
+            _courseService = courseService;
         }
 
-        public async Task<IActionResult> Index(AppUserRegisterInput appUserRegisterDto)
+        public async Task<IActionResult> Index(int page = 1)
         {
-            return View();
+            var result = await _courseService.GetCoursesAsync();
+            var pagedData = result.Data.ToPagedList(page, 6);
+            return View(pagedData);
         }
 
-        public IActionResult Privacy()
+        public async Task<IActionResult> CourseDetails(int courseId)
         {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            var result = await _courseService.GetCourseDetailAsync(courseId);
+            if (result.Errors is not null)
+            {
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error);
+                }
+            }
+            return View(result.Data);
         }
     }
 }
