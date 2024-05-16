@@ -21,6 +21,7 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IGenderService, GenderService>();
 builder.Services.AddScoped<IAppUserService, AppUserService>();
 builder.Services.AddScoped<ICourseService, CourseService>();
+builder.Services.AddScoped<IEnrollmentRequestStatusService,  EnrollmentRequestStatusService>();
 
 //Auth - Cookie Based
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddCookie(JwtBearerDefaults.AuthenticationScheme, opt =>
