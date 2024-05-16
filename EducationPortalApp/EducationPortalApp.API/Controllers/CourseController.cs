@@ -1,6 +1,7 @@
 ﻿using EducationPortalApp.Business.Services.Interfaces;
 using EducationPortalApp.Dtos.CourseDtos;
 using EducationPortalApp.Shared.ControllerBases;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EducationPortalApp.API.Controllers
@@ -27,18 +28,21 @@ namespace EducationPortalApp.API.Controllers
             return CreateActionResultInstance(await _courseService.GetCourseByIdAsync(courseId));
         }
 
+        [Authorize]
         [HttpPost("[action]")]
         public async Task<IActionResult> InsertCourse([FromForm] CourseCreateDto courseCreateDto, CancellationToken cancellationToken)
         {
             return CreateActionResultInstance(await _courseService.InsertCourseAsync(courseCreateDto, cancellationToken));
         }
 
+        [Authorize]
         [HttpPut("[action]")]
         public async Task<IActionResult> UpdateCourse([FromForm] CourseUpdateDto courseUpdateDto, CancellationToken cancellationToken)
         {
             return CreateActionResultInstance(await _courseService.UpdateCourseAsync(courseUpdateDto, cancellationToken));
         }
 
+        [Authorize]
         [HttpDelete("[action]/{courseId}")]
         public async Task<IActionResult> RemoveCourse(int courseId)
         {

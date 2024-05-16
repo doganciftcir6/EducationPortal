@@ -1,0 +1,78 @@
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+
+@model IPagedList<CoursesVM>
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    .table td img {
+        max-width: 50px;
+        max-height: 50px;
+        width: 100%;
+        height: auto;
+    }
+
+    .table {
+        table-layout: fixed;
+        width: 100%;
+    }
+
+        .table td {
+            width: 25%
+        }
+</style>
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="card-title mb-0">Courses</h5>
+                </div>
+                <div class="card-body">
+                    <a asp-controller="AdminCourse" asp-action="InsertCourse" class="btn btn-primary mb-3">Create a new course</a>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Picture</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">CostPerDay</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td> <img src="@item.Picture" class="img-fluid" alt="Course Image" style="max-height: 50px; max-width: 50px"></td>
+                                        <td>@item.Name</td>
+                                        <td>@item.CostPerDay</td>
+                                        <td>
+                                            <a asp-controller="AdminCourse" asp-action="UpdateCourse" asp-route-courseId="@item.Id" class="btn btn-outline-success btn-sm">Update</a>
+                                            <a asp-controller="AdminCourse" asp-action="DeleteCourse" asp-route-courseId="@item.Id" class="btn btn-outline-danger btn-sm">Delete</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <div style="margin-left:815px;">
+                            @Html.PagedListPager(
+                                     (IPagedList)Model,
+                                     page => Url.Action("Index", new { page }),
+                                     new X.PagedList.Web.Common.PagedListRenderOptions
+                            {
+                                ContainerDivClasses = new[] { "navigation" },
+                                LiElementClasses = new[] { "page-item" },
+                                PageClasses = new[] { "page-link" },
+                                DisplayEllipsesWhenNotShowingAllPageNumbers = false,
+                            })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

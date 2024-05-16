@@ -1,0 +1,89 @@
+﻿@using System.Text.Json;
+@model CourseCreateInput
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="card-title mb-0">Create New Course</h5>
+                </div>
+                <div asp-validation-summary="All"></div>
+                <div class="card-body">
+                    <form asp-controller="AdminCourse" asp-action="InsertCourse" method="post" enctype="multipart/form-data">
+                        @{
+                            TempData["categories"] = JsonSerializer.Serialize(Model.Categories);
+                        }
+                        <div class="form-group">
+                            <label for="courseName">Course Name</label>
+                            <input asp-for="@Model.Name" type="text" id="courseName" class="form-control" />
+                            <span asp-validation-for="@Model.Name" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="courseDescription">Description</label>
+                            <textarea asp-for="@Model.Description" id="courseDescription" rows="4" class="form-control"></textarea>
+                            <span asp-validation-for="@Model.Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="instructor">Instructor</label>
+                            <input asp-for="@Model.Instructor" type="text" id="instructor" class="form-control" />
+                            <span asp-validation-for="@Model.Instructor" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="maxCapacity">MaxCapacity</label>
+                            <input asp-for="@Model.MaxCapacity" type="text" id="maxCapacity" class="form-control" />
+                            <span asp-validation-for="@Model.MaxCapacity" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="durationInHours">DurationInHours</label>
+                            <input asp-for="@Model.DurationInHours" type="text" id="durationInHours" class="form-control" />
+                            <span asp-validation-for="@Model.DurationInHours" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="courseCostPerDay">CostPerDay</label>
+                            <input asp-for="@Model.CostPerDay" type="number" id="courseCostPerDay" class="form-control" />
+                            <span asp-validation-for="@Model.CostPerDay" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="categoryCategory">Category</label>
+                            <select asp-items="@Model.Categories" asp-for="@Model.CategoryId" id="categoryCategory" class="form-control">
+                                <option value="">-- Select Category --</option>
+                            </select>
+                            <span asp-validation-for="@Model.CategoryId" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="categoryPicture">Picture</label>
+                            <div class="custom-file">
+                                <input asp-for="@Model.Picture" type="file" class="form-control" id="categoryPicture" onchange="updateFileName()">
+                                <label class="custom-file-label" for="categoryPicture">Choose file</label>
+                            </div>
+                            <span asp-validation-for="@Model.Picture" class="text-danger"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block mt-3">Create</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function updateFileName() {
+        var input = document.getElementById('categoryPicture');
+        var label = input.nextElementSibling;
+        var fileName = input.files[0].name;
+        label.innerText = fileName;
+    }
+</script>

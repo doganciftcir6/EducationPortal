@@ -7,5 +7,8 @@ namespace EducationPortalApp.Web.Services.Interfaces
     {
         Task<CustomResponse<IEnumerable<CoursesVM>>> GetCoursesAsync();
         Task<CustomResponse<CourseVM>> GetCourseDetailAsync(int courseId);
+        Task<CustomResponse<NoContent>> InsertCourseAsync(CourseCreateInput courseCreateInput);
+        Task<CustomResponse<NoContent>> UpdateCourseAsync(CourseUpdateInput courseUpdateInput);
+        Task<CustomResponse<NoContent>> RemoveCourseAsync(int courseId);
     }
 }
