@@ -23,17 +23,21 @@
                 </div>
             </div>
         }
-        <div style="margin-left:815px;">
-            @Html.PagedListPager(
-                     (IPagedList)Model,
-                     page => Url.Action("Index", new { page }),
-                     new X.PagedList.Web.Common.PagedListRenderOptions
-            {
-                ContainerDivClasses = new[] { "navigation" },
-                LiElementClasses = new[] { "page-item" },
-                PageClasses = new[] { "page-link" },
-                DisplayEllipsesWhenNotShowingAllPageNumbers = false,
-            })
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-center">
+                @Html.PagedListPager(
+                         (IPagedList)Model,
+                         page => Url.Action("Index", new { page }),
+                         new X.PagedList.Web.Common.PagedListRenderOptions
+                {
+                    ContainerDivClasses = new[] { "navigation" },
+                    LiElementClasses = new[] { "page-item" },
+                    PageClasses = new[] { "page-link" },
+                    DisplayEllipsesWhenNotShowingAllPageNumbers = false,
+                })
+            </div>
         </div>
     </div>
 </div>

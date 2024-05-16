@@ -3,12 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{ABE4BE1A-6B77-45B2-884A-E457028D28C8}|Frontends\\EducationPortalApp.Web\\EducationPortalApp.Web.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\frontends\\educationportalapp.web\\views\\enrollment\\mycourses.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{ABE4BE1A-6B77-45B2-884A-E457028D28C8}|Frontends\\EducationPortalApp.Web\\EducationPortalApp.Web.csproj|solutionrelative:frontends\\educationportalapp.web\\views\\enrollment\\mycourses.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{ABE4BE1A-6B77-45B2-884A-E457028D28C8}|Frontends\\EducationPortalApp.Web\\EducationPortalApp.Web.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\frontends\\educationportalapp.web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{ABE4BE1A-6B77-45B2-884A-E457028D28C8}|Frontends\\EducationPortalApp.Web\\EducationPortalApp.Web.csproj|solutionrelative:frontends\\educationportalapp.web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABE4BE1A-6B77-45B2-884A-E457028D28C8}|Frontends\\EducationPortalApp.Web\\EducationPortalApp.Web.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\frontends\\educationportalapp.web\\views\\shared\\components\\headercomponent\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ABE4BE1A-6B77-45B2-884A-E457028D28C8}|Frontends\\EducationPortalApp.Web\\EducationPortalApp.Web.csproj|solutionrelative:frontends\\educationportalapp.web\\views\\shared\\components\\headercomponent\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABE4BE1A-6B77-45B2-884A-E457028D28C8}|Frontends\\EducationPortalApp.Web\\EducationPortalApp.Web.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\frontends\\educationportalapp.web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ABE4BE1A-6B77-45B2-884A-E457028D28C8}|Frontends\\EducationPortalApp.Web\\EducationPortalApp.Web.csproj|solutionrelative:frontends\\educationportalapp.web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABE4BE1A-6B77-45B2-884A-E457028D28C8}|Frontends\\EducationPortalApp.Web\\EducationPortalApp.Web.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\frontends\\educationportalapp.web\\views\\shared\\components\\footercomponent\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ABE4BE1A-6B77-45B2-884A-E457028D28C8}|Frontends\\EducationPortalApp.Web\\EducationPortalApp.Web.csproj|solutionrelative:frontends\\educationportalapp.web\\views\\shared\\components\\footercomponent\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABE4BE1A-6B77-45B2-884A-E457028D28C8}|Frontends\\EducationPortalApp.Web\\EducationPortalApp.Web.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\frontends\\educationportalapp.web\\viewcomponents\\headercomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABE4BE1A-6B77-45B2-884A-E457028D28C8}|Frontends\\EducationPortalApp.Web\\EducationPortalApp.Web.csproj|solutionrelative:frontends\\educationportalapp.web\\viewcomponents\\headercomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABE4BE1A-6B77-45B2-884A-E457028D28C8}|Frontends\\EducationPortalApp.Web\\EducationPortalApp.Web.csproj|c:\\users\\dogan\\documents\\github\\educationportal\\educationportalapp\\frontends\\educationportalapp.web\\viewcomponents\\footercomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABE4BE1A-6B77-45B2-884A-E457028D28C8}|Frontends\\EducationPortalApp.Web\\EducationPortalApp.Web.csproj|solutionrelative:frontends\\educationportalapp.web\\viewcomponents\\footercomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,27 +39,79 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "MyCourses.cshtml",
-              "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\Frontends\\EducationPortalApp.Web\\Views\\Enrollment\\MyCourses.cshtml",
-              "RelativeDocumentMoniker": "Frontends\\EducationPortalApp.Web\\Views\\Enrollment\\MyCourses.cshtml",
-              "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\Frontends\\EducationPortalApp.Web\\Views\\Enrollment\\MyCourses.cshtml",
-              "RelativeToolTip": "Frontends\\EducationPortalApp.Web\\Views\\Enrollment\\MyCourses.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-16T15:24:06.196Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\Frontends\\EducationPortalApp.Web\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "Frontends\\EducationPortalApp.Web\\Views\\Home\\Index.cshtml",
               "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\Frontends\\EducationPortalApp.Web\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "Frontends\\EducationPortalApp.Web\\Views\\Home\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAdAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAADwvysAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-16T15:23:33.782Z",
+              "WhenOpened": "2024-05-16T15:35:45.178Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\Frontends\\EducationPortalApp.Web\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Frontends\\EducationPortalApp.Web\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\Frontends\\EducationPortalApp.Web\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Frontends\\EducationPortalApp.Web\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABQAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-16T15:33:23.888Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Default.cshtml",
+              "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\Frontends\\EducationPortalApp.Web\\Views\\Shared\\Components\\HeaderComponent\\Default.cshtml",
+              "RelativeDocumentMoniker": "Frontends\\EducationPortalApp.Web\\Views\\Shared\\Components\\HeaderComponent\\Default.cshtml",
+              "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\Frontends\\EducationPortalApp.Web\\Views\\Shared\\Components\\HeaderComponent\\Default.cshtml",
+              "RelativeToolTip": "Frontends\\EducationPortalApp.Web\\Views\\Shared\\Components\\HeaderComponent\\Default.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-16T15:30:20.322Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Default.cshtml",
+              "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\Frontends\\EducationPortalApp.Web\\Views\\Shared\\Components\\FooterComponent\\Default.cshtml",
+              "RelativeDocumentMoniker": "Frontends\\EducationPortalApp.Web\\Views\\Shared\\Components\\FooterComponent\\Default.cshtml",
+              "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\Frontends\\EducationPortalApp.Web\\Views\\Shared\\Components\\FooterComponent\\Default.cshtml",
+              "RelativeToolTip": "Frontends\\EducationPortalApp.Web\\Views\\Shared\\Components\\FooterComponent\\Default.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-16T15:30:03.312Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FooterComponent.cs",
+              "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\Frontends\\EducationPortalApp.Web\\ViewComponents\\FooterComponent.cs",
+              "RelativeDocumentMoniker": "Frontends\\EducationPortalApp.Web\\ViewComponents\\FooterComponent.cs",
+              "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\Frontends\\EducationPortalApp.Web\\ViewComponents\\FooterComponent.cs",
+              "RelativeToolTip": "Frontends\\EducationPortalApp.Web\\ViewComponents\\FooterComponent.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-16T15:28:47.709Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "HeaderComponent.cs",
+              "DocumentMoniker": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\Frontends\\EducationPortalApp.Web\\ViewComponents\\HeaderComponent.cs",
+              "RelativeDocumentMoniker": "Frontends\\EducationPortalApp.Web\\ViewComponents\\HeaderComponent.cs",
+              "ToolTip": "C:\\Users\\dogan\\Documents\\GitHub\\EducationPortal\\EducationPortalApp\\Frontends\\EducationPortalApp.Web\\ViewComponents\\HeaderComponent.cs",
+              "RelativeToolTip": "Frontends\\EducationPortalApp.Web\\ViewComponents\\HeaderComponent.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-16T15:28:42.249Z",
               "EditorCaption": ""
             }
           ]
