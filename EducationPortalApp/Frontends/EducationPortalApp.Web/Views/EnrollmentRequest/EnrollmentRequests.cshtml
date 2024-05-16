@@ -17,6 +17,8 @@
                                     <th scope="col">Firstname</th>
                                     <th scope="col">Lastname</th>
                                     <th scope="col">Course</th>
+                                    <th scope="col">Capacity</th>
+                                    <th scope="col">MaxCapacity</th>
                                     <th scope="col">EnrollmentRequestStatus</th>
                                     <th scope="col">Actions</th>
                                 </tr>
@@ -29,8 +31,11 @@
                                         <td>@item.AppUser.Firstname</td>
                                         <td>@item.AppUser.Lastname</td>
                                         <td>@item.Course.Name</td>
+                                        <td>@item.Course.Capacity</td>
+                                        <td>@item.Course.MaxCapacity</td>
                                         <td>@item.EnrollmentRequestStatus</td>
                                         <td>
+                                            <div class="text-danger" asp-validation-summary="All"></div>
                                             <form asp-controller="Enrollment" asp-action="InsertEnrollment" asp-route-enrollmentRequestId="@item.Id" method="post" class="d-inline">
                                                 <input type="hidden" name="AppUserId" value="@item.AppUser.Id" />
                                                 <input type="hidden" name="CourseId" value="@item.Course.Id" />
@@ -39,7 +44,7 @@
                                                 </button>
                                             </form>
 
-                                            <form asp-controller="Enrollment" asp-action="RemoveEnrollment" asp-route-courseId="@item.Course.Id" asp-route-appUserId="@item.AppUser.Id" enrollmentRequestId="@item.Id" method="post" class="d-inline">
+                                            <form asp-controller="Enrollment" asp-action="RemoveEnrollment" asp-route-courseId="@item.Course.Id" asp-route-appUserId="@item.AppUser.Id" asp-route-enrollmentRequestId="@item.Id" method="post" class="d-inline">
                                                 <button type="submit" class="btn btn-warning btn-sm" onclick="return confirm('Are you sure you want to delete this enrollment?')">
                                                     Cancel Enrollment
                                                 </button>

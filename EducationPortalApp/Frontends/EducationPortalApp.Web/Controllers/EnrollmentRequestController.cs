@@ -35,16 +35,16 @@ namespace EducationPortalApp.Web.Controllers
                 ViewBag.EnrollmentRequestStatuses = new SelectList(statuses, "Id", "Definition");
                 return View("~/Views/Home/CourseDetails.cshtml", courseDetailsModel.Data);
             }
-            return RedirectToAction("GetAllEnrollmentRequestByUser");
+            return RedirectToAction("EnrollmentRequestsByUser");
         }
 
-        public async Task<IActionResult> GetAllEnrollmentRequestByUser()
+        public async Task<IActionResult> EnrollmentRequestsByUser()
         {
             var response = await _enrollmentRequestService.GetAllEnrollmentRequestByUserAsync();
             return View(response.Data);
         }
 
-        public async Task<IActionResult> GetAllEnrollmentRequest()
+        public async Task<IActionResult> EnrollmentRequests()
         {
             var response = await _enrollmentRequestService.GetAllEnrollmentRequestAsync();
             return View(response.Data);

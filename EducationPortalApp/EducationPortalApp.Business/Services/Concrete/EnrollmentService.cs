@@ -52,6 +52,10 @@ namespace EducationPortalApp.Business.Services.Concrete
 
         public async Task<CustomResponse<NoContent>> InsertEnrollmentAsync(EnrollmentCreateDto enrollmentCreateDto, int enrollmentRequestId)
         {
+            var enrollments = await _uow.GetRepository<Enrollment>().GetAllFilterAsync(x => x.AppUserId == enrollmentCreateDto.AppUserId && x.CourseId == enrollmentCreateDto.CourseId);
+            if (enrollments.Any())
+                return CustomResponse<NoContent>.Fail(EnrollmentMessages.ALREADY_ENROLLED_ERROR, ResponseStatusCode.BAD_REQUEST);
+
             var validationResult = _enrollmentCreateDtoValidator.Validate(enrollmentCreateDto);
             if (validationResult.IsValid)
             {
@@ -87,7 +91,7 @@ namespace EducationPortalApp.Business.Services.Concrete
                 await _uow.SaveChangesAsync();
                 return CustomResponse<NoContent>.Success(ResponseStatusCode.OK);
             }
-            return CustomResponse<NoContent>.Fail(EnrollmentMessages.NOT_FOUND_ENROLLMENT, ResponseStatusCode.NOT_FOUND);
+            return CustomResponse<NoContent>.Fail(EnrollmentMessages.USER_NOT_ENROLLED_ERROR, ResponseStatusCode.NOT_FOUND);
         }
 
         public async Task<bool> UpdateEnrollmentCompletionStatusAsync(int courseContentId, int courseId)

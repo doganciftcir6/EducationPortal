@@ -45,10 +45,23 @@ namespace EducationPortalApp.Web.Helpers.HttpHelpers
         {
             var _httpClient = _httpClientFactory.CreateClient("MyApiClient");
             var result = await _httpClient.DeleteAsync($"{uri}/{id}");
-            if (!result.IsSuccessStatusCode)
-            {
-                return null;
-            }
+            //if (!result.IsSuccessStatusCode)
+            //{
+            //    return null;
+            //}
+
+            return await FromHttpResponseMessage<T>(result);
+        }
+
+        public async Task<T> HttpDelete<T>(string uri)
+         where T : class
+        {
+            var _httpClient = _httpClientFactory.CreateClient("MyApiClient");
+            var result = await _httpClient.DeleteAsync($"{uri}");
+            //if (!result.IsSuccessStatusCode)
+            //{
+            //    return null;
+            //}
 
             return await FromHttpResponseMessage<T>(result);
         }
