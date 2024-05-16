@@ -57,10 +57,10 @@ namespace EducationPortalApp.Business.Services.Concrete
             {
                 Enrollment enrollment = _mapper.Map<Enrollment>(enrollmentCreateDto);
                 await _uow.GetRepository<Enrollment>().InsertAsync(enrollment);
-                //Kapasite düşür
-                var decreaseCourseCapacityResponse = await _courseService.DecreaseCourseCapacityAsync(enrollment.CourseId);
-                if (decreaseCourseCapacityResponse.Errors != null)
-                    return CustomResponse<NoContent>.Fail(decreaseCourseCapacityResponse.Errors, ResponseStatusCode.BAD_REQUEST);
+                //Kapasite arttır
+                var increaseCourseCapacityResponse = await _courseService.IncreaseCourseCapacityAsync(enrollment.CourseId);
+                if (increaseCourseCapacityResponse.Errors != null)
+                    return CustomResponse<NoContent>.Fail(increaseCourseCapacityResponse.Errors, ResponseStatusCode.BAD_REQUEST);
 
                 //İlgili enrollment requesti sil artık sonuç geldi
                 await _enrollmentRequestService.RemoveEnrollmentRequestAsync(enrollmentRequestId);
@@ -70,17 +70,17 @@ namespace EducationPortalApp.Business.Services.Concrete
             return CustomResponse<NoContent>.Fail(validationResult.Errors.Select(x => x.ErrorMessage).ToList(), ResponseStatusCode.BAD_REQUEST);
         }
 
-        public async Task<CustomResponse<NoContent>> RemoveEnrollmentAsync(int enrollmentId, int enrollmentRequestId)
+        public async Task<CustomResponse<NoContent>> RemoveEnrollmentAsync(int courseId, int appUserId, int enrollmentRequestId)
         {
-            Enrollment enrollment = await _uow.GetRepository<Enrollment>().GetByIdAsync(enrollmentId);
+            Enrollment enrollment = await _uow.GetRepository<Enrollment>().GetByFilterAsync(x => x.CourseId == courseId && x.AppUserId == appUserId);
             if (enrollment != null)
             {
                 _uow.GetRepository<Enrollment>().Delete(enrollment);
 
-                //Kapasite arttır
-                var increaseCoruseCapacityResponse = await _courseService.IncreaseCourseCapacityAsync(enrollment.CourseId);
-                if (increaseCoruseCapacityResponse.Errors != null)
-                    return CustomResponse<NoContent>.Fail(increaseCoruseCapacityResponse.Errors, ResponseStatusCode.BAD_REQUEST);
+                //Kapasite azalt
+                var decreaseCoruseCapacityResponse = await _courseService.DecreaseCourseCapacityAsync(enrollment.CourseId);
+                if (decreaseCoruseCapacityResponse.Errors != null)
+                    return CustomResponse<NoContent>.Fail(decreaseCoruseCapacityResponse.Errors, ResponseStatusCode.BAD_REQUEST);
                 //İlgili enrollment requesti sil artık sonuç geldi
 
                 await _enrollmentRequestService.RemoveEnrollmentRequestAsync(enrollmentRequestId);

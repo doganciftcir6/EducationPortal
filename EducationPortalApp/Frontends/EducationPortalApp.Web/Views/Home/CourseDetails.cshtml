@@ -24,9 +24,22 @@
                         </div>
                     </div>
                     <div class="text-center mt-3">
-                        <a asp-controller="EnrollmentReuqest" asp-action="InserEnrollmentRequest" asp-route-courseId="@Model.Id" class="btn btn-primary">
-                            Create Request
-                        </a>
+                        <div class="text-danger" asp-validation-summary="All"></div>
+                        <form asp-controller="EnrollmentRequest" asp-action="InsertEnrollmentRequest" method="post">
+                            <input type="hidden" name="CourseId" value="@Model.Id" />
+                            <select name="EnrollmentRequestStatusId" class="form-control">
+                                @if (ViewBag.EnrollmentRequestStatuses != null)
+                                {
+                                    @foreach (var status in ViewBag.EnrollmentRequestStatuses)
+                                    {
+                                        <option value="@status.Value">@status.Text</option>
+                                    }
+                                }
+                            </select>
+                            <button type="submit" class="btn btn-primary mt-3">
+                                Create Request
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>

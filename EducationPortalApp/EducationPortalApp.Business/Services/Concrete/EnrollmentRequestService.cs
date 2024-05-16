@@ -4,7 +4,9 @@ using EducationPortalApp.Business.Services.Interfaces;
 using EducationPortalApp.DataAccess.Repositories.Interfaces;
 using EducationPortalApp.DataAccess.UnitOfWork;
 using EducationPortalApp.Dtos.EnrollmentRequestDtos;
+using EducationPortalApp.Entities.CourseEntities;
 using EducationPortalApp.Entities.EnrollmentEntities;
+using EducationPortalApp.Shared.Enums;
 using EducationPortalApp.Shared.Services;
 using EducationPortalApp.Shared.Utilities.Response;
 using FluentValidation;
@@ -46,6 +48,39 @@ namespace EducationPortalApp.Business.Services.Concrete
 
         public async Task<CustomResponse<NoContent>> InsertEnrollmentRequestAsync(EnrollmentRequestCreateDto enrollmentRequestCreateDto)
         {
+            //Kurs kapasite kontrolü
+            var course = await _uow.GetRepository<Course>().GetByIdAsync(enrollmentRequestCreateDto.CourseId);
+            if (course == null)
+            {
+                return CustomResponse<NoContent>.Fail(CourseMessages.NOT_FOUND_COURSE, ResponseStatusCode.NOT_FOUND);
+            }
+            if (course.Capacity == course.MaxCapacity && enrollmentRequestCreateDto.EnrollmentRequestStatusId == (int)EnrollmentRequestStatusEnum.Participation)
+            {
+                return CustomResponse<NoContent>.Fail(EnrollmentRequestMessages.COURSE_CAPACİTY_ERROR, ResponseStatusCode.BAD_REQUEST);
+            }
+
+            //Aynı statustan kayıt daha önce yapılmış mı
+            var existingRequests = await _uow.GetRepository<EnrollmentRequest>().GetAllFilterAsync(x => x.AppUserId == _sharedIdentityService.GetUserId && x.CourseId == enrollmentRequestCreateDto.CourseId && x.EnrollmentRequestStatusId == enrollmentRequestCreateDto.EnrollmentRequestStatusId);
+            if (existingRequests.Any())
+                return CustomResponse<NoContent>.Fail(EnrollmentRequestMessages.EXİST_ENROLLMENTRQ_ERROR, ResponseStatusCode.BAD_REQUEST);
+
+
+            //Kullanıcının ilgili kursa kayıtlı olup olmadığını kontrol et
+            var enrollmentExists = await _uow.GetRepository<Enrollment>()
+                                             .GetAllFilterAsync(x => x.AppUserId == _sharedIdentityService.GetUserId && x.CourseId == enrollmentRequestCreateDto.CourseId);
+            //Eğer ilgili kursa kayıt yoksa ve enrollmentRequestStatusu Cancellation ise hata döndür
+            if (!enrollmentExists.Any() && enrollmentRequestCreateDto.EnrollmentRequestStatusId == (int)EnrollmentRequestStatusEnum.Cancellation)
+            {
+                return CustomResponse<NoContent>.Fail(EnrollmentRequestMessages.NOT_ENROLLED_TO_CANCEL, ResponseStatusCode.BAD_REQUEST);
+            }
+
+            //Eğer ilgili kursa kayıt varsa ve enrollmentRequestStatusu Participation ise hata döndür
+            if (enrollmentExists.Any() && enrollmentRequestCreateDto.EnrollmentRequestStatusId == (int)EnrollmentRequestStatusEnum.Participation)
+            {
+                return CustomResponse<NoContent>.Fail(EnrollmentRequestMessages.ALREADY_ENROLLED, ResponseStatusCode.BAD_REQUEST);
+            }
+
+
             var validationResult = _enrollmentRequestCreateDtoValidator.Validate(enrollmentRequestCreateDto);
             if (validationResult.IsValid)
             {

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ComplexEnrollmentRequestVM>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="card-title mb-0">Enrollment Request List</h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Firstname</th>
+                                    <th scope="col">Lastname</th>
+                                    <th scope="col">Course</th>
+                                    <th scope="col">EnrollmentRequestStatus</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.Id</td>
+                                        <td>@item.AppUser.Firstname</td>
+                                        <td>@item.AppUser.Lastname</td>
+                                        <td>@item.Course.Name</td>
+                                        <td>@item.EnrollmentRequestStatus</td>
+                                        <td>
+                                            <form asp-controller="Enrollment" asp-action="InsertEnrollment" asp-route-enrollmentRequestId="@item.Id" method="post" class="d-inline">
+                                                <input type="hidden" name="AppUserId" value="@item.AppUser.Id" />
+                                                <input type="hidden" name="CourseId" value="@item.Course.Id" />
+                                                <button type="submit" class="btn btn-primary btn-sm">
+                                                    Register User for Course
+                                                </button>
+                                            </form>
+
+                                            <form asp-controller="Enrollment" asp-action="RemoveEnrollment" asp-route-courseId="@item.Course.Id" asp-route-appUserId="@item.AppUser.Id" enrollmentRequestId="@item.Id" method="post" class="d-inline">
+                                                <button type="submit" class="btn btn-warning btn-sm" onclick="return confirm('Are you sure you want to delete this enrollment?')">
+                                                    Cancel Enrollment
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

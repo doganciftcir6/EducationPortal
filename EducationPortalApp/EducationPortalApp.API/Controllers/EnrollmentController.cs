@@ -35,10 +35,10 @@ namespace EducationPortalApp.API.Controllers
             return CreateActionResultInstance(await _enrollmentService.InsertEnrollmentAsync(enrollmentCreateDto, enrollmentRequestId));
         }
 
-        [HttpDelete("[action]/{enrollmentId}/{enrollmentRequestId}")]
-        public async Task<IActionResult> RemoveEnrollmentRequest(int enrollmentId, int enrollmentRequestId)
+        [HttpDelete("[action]/{courseId}/{appUserId}/{enrollmentRequestId}")]
+        public async Task<IActionResult> RemoveEnrollmentRequest(int courseId, int appUserId, int enrollmentRequestId)
         {
-            return CreateActionResultInstance(await _enrollmentService.RemoveEnrollmentAsync(enrollmentId, enrollmentRequestId));
+            return CreateActionResultInstance(await _enrollmentService.RemoveEnrollmentAsync(courseId, appUserId, enrollmentRequestId));
         }
     }
 }
