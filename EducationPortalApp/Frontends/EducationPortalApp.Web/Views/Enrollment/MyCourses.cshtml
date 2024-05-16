@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<EnrollmentVM>
 
 <div class="container-fluid">
-    <h2 class="text-center mb-4">Products</h2>
+    <h2 class="text-center mb-4">My Courses</h2>
     <div class="row">
         @foreach (var item in Model)
         {
@@ -12,6 +12,7 @@
                         <h5 class="card-title">@item.Course.Name</h5>
                         <h4 class="text-primary">Instructor: @item.Course.Instructor</h4>
                         <a class="btn btn-success btn-block" asp-controller="Home" asp-action="CourseDetails" asp-route-courseId="@item.Course.Id">Details</a>
+                        <a class="btn btn-outline-success btn-block" asp-controller="CourseContent" asp-action="Index" asp-route-courseId="@item.Course.Id">Go to course content</a>
                     </div>
                 </div>
             </div>

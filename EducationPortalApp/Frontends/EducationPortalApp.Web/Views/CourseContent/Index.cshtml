@@ -1,0 +1,79 @@
+﻿@model IEnumerable<CourseContentVM>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-7">
+            <!-- Sol tarafta kurs içeriğinin videosu veya pdfi -->
+            <div style="width: 43vw; height: 55vh;">
+                <iframe id="contentFrame" src="@Model.FirstOrDefault()?.FilePath" style="width: 100%; height: 100%;" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <!-- Sağ tarafta kurs içeriklerinin isimleri ve checkboxları -->
+            <div class="list-group mt-3">
+                @foreach (var content in Model)
+                {
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <span class="content-name" data-filepath="@content.FilePath">@content.Name</span>
+                        <div class="form-check">
+                            @{
+                                var userCourseContentStatues = ViewBag.UserCourseContentStatues as List<UserCourseContentStatusVM>;
+                                //Eğer UserCourseContentStatues varsa ve ilgili content için IsCompleted varsa checkboxu işaretle
+                                bool isChecked = userCourseContentStatues != null && userCourseContentStatues.Any(s => s.CourseContentId == content.Id && s.IsCompleted);
+                            }
+                            <input class="form-check-input" type="checkbox" id="contentCompleted_@content.Id" onclick="updateStatus(@content.Id, this.checked)" @if (isChecked)
+                            {
+                                <text>checked</text>
+                            } />
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <!-- Alt kısımda kurs bilgileri -->
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <div class="card border-secondary">
+                <div class="card-header bg-light">
+                    <h4 class="card-title mb-0">@Model.FirstOrDefault()?.Course.Name</h4>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">@Model.FirstOrDefault()?.Course.Description</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong><i class="bi bi-person"></i> Instructor:</strong> @Model.FirstOrDefault()?.Course.Instructor</li>
+                        <li class="list-group-item"><strong><i class="bi bi-clock"></i> Duration:</strong> @Model.FirstOrDefault()?.Course.DurationInHours hours</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    //Checkbox ile kurs içerik durumunu güncelle
+    async function updateStatus(courseContentId, isChecked) {
+        try {
+            console.log(courseContentId);
+            var response = await fetch('/CourseContent/UpdateCourseContentStatus?courseContentId=' + courseContentId + '&isChecked=' + isChecked, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
+
+    //Kurs içeriği adına tıklandığında içerik dosyasının değişmesi
+    var contentNames = document.querySelectorAll('.content-name');
+    contentNames.forEach(function (name) {
+        name.addEventListener('click', function () {
+            var filePath = this.getAttribute('data-filepath');
+            document.getElementById('contentFrame').src = filePath;
+        });
+    });
+</script>

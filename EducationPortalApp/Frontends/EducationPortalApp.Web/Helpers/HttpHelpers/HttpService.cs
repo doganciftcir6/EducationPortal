@@ -173,6 +173,25 @@ namespace EducationPortalApp.Web.Helpers.HttpHelpers
             return await FromHttpResponseMessage<T>(result);
         }
 
+        public async Task<T> HttpPatchWithToken<T>(string uri, object dataToSend)
+          where T : class
+        {
+            var token = _contextAccessor.HttpContext.User.Claims.FirstOrDefault(x => x.Type == "accessToken")?.Value;
+
+            if (string.IsNullOrEmpty(token))
+            {
+                throw new InvalidOperationException("Access token is not available.");
+            }
+
+            var _httpClient = _httpClientFactory.CreateClient("MyApiClient");
+            _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+            var content = ToJson(dataToSend);
+
+            var result = await _httpClient.PatchAsync(uri, content);
+
+            return await FromHttpResponseMessage<T>(result);
+        }
+
         private StringContent ToJson(object obj)
         {
             return new StringContent(JsonSerializer.Serialize(obj), Encoding.UTF8, "application/json");
