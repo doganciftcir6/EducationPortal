@@ -16,4 +16,8 @@
     <ProjectReference Include="..\..\EducationPortalApp.Shared\EducationPortalApp.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Models\" />
+  </ItemGroup>
+
 </Project>

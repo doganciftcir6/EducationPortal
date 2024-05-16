@@ -44,6 +44,7 @@ namespace EducationPortalApp.Web.Controllers
             return View(response.Data);
         }
 
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> EnrollmentRequests()
         {
             var response = await _enrollmentRequestService.GetAllEnrollmentRequestAsync();

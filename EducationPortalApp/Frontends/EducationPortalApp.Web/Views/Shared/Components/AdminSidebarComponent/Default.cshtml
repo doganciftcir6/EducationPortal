@@ -1,0 +1,71 @@
+﻿<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" asp-area="Admin" asp-controller="AdminHome" asp-action="Index">
+        <div class="sidebar-brand-icon rotate-n-15">
+            <i class="fa-solid fa-toolbox"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">EducationPortal </div>
+    </a>
+
+    <hr class="sidebar-divider my-0">
+
+    <li class="nav-item active">
+        <a class="nav-link" asp-area="Admin" asp-controller="AdminHome" asp-action="Index">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span>
+        </a>
+    </li>
+
+    <hr class="sidebar-divider">
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+           aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fa-solid fa-user"></i>
+            <span>Auth</span>
+        </a>
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+             data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">User Operations:</h6>
+                <a class="collapse-item" asp-controller="AppUser" asp-action="ProfileDetails">My Profile</a>
+                <a class="collapse-item" asp-controller="AppUser" asp-action="ChangePassword">ChangePassword</a>
+            </div>
+        </div>
+    </li>
+
+    <hr class="sidebar-divider">
+
+    <li class="nav-item">
+        <a class="nav-link" asp-area="Admin" asp-controller="AdminCourse" asp-action="Index">
+            <i class="fa-solid fa-computer"></i>
+            <span>Courses</span>
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" asp-area="Admin" asp-controller="AdminCategory" asp-action="Index">
+            <i class="fa-solid fa-money-bill-1-wave"></i>
+            <span>Categories</span>
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" asp-area="Admin" asp-controller="EnrollmentRequest" asp-action="EnrollmentRequests">
+            <i class="fa-solid fa-building"></i>
+            <span>EnrollmentRequests</span>
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" asp-controller="Enrollment" asp-action="Enrollments">
+            <i class="fa-solid fa-building"></i>
+            <span>Enrollments</span>
+        </a>
+    </li>
+
+    <hr class="sidebar-divider d-none d-md-block">
+
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
+</ul>

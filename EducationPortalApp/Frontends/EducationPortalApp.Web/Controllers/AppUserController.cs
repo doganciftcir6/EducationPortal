@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EducationPortalApp.Web.Controllers
 {
-    [Authorize]
     public class AppUserController : Controller
     {
         private readonly IAppUserService _appUserService;
@@ -31,9 +30,10 @@ namespace EducationPortalApp.Web.Controllers
                 }
                 return View();
             }
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Index", "Home");
         }
 
+        [Authorize]
         public async Task<IActionResult> ProfileDetails()
         {
             var response = await _appUserService.GetProfileAsync();
