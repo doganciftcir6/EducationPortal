@@ -19,9 +19,9 @@
         width: 100%;
     }
 
-        .table td {
-            width: 25%
-        }
+    .table td {
+        width: 25%
+    }
 </style>
 
 <div class="container-fluid">
@@ -51,8 +51,11 @@
                                         <td>@item.Name</td>
                                         <td>@item.CostPerDay</td>
                                         <td>
-                                            <a asp-controller="AdminCourse" asp-action="UpdateCourse" asp-route-courseId="@item.Id" class="btn btn-outline-success btn-sm">Update</a>
-                                            <a asp-controller="AdminCourse" asp-action="DeleteCourse" asp-route-courseId="@item.Id" class="btn btn-outline-danger btn-sm">Delete</a>
+                                            <div class="btn-group" role="group">
+                                                <a asp-controller="AdminCourseContent" asp-action="InsertCourseContent" asp-route-courseId="@item.Id" class="btn btn-success btn-sm">Add Content</a>
+                                                <a asp-controller="AdminCourse" asp-action="UpdateCourse" asp-route-courseId="@item.Id" class="btn btn-outline-success btn-sm">Update</a>
+                                                <a asp-controller="AdminCourse" asp-action="DeleteCourse" asp-route-courseId="@item.Id" class="btn btn-outline-danger btn-sm">Delete</a>
+                                            </div>
                                         </td>
                                     </tr>
                                 }
