@@ -11,6 +11,7 @@ using EducationPortalApp.Shared.Utilities.Response;
 using FluentValidation;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 
 namespace EducationPortalApp.Business.Services.Concrete
 {
@@ -25,7 +26,8 @@ namespace EducationPortalApp.Business.Services.Concrete
         private readonly IConfiguration _configuration;
         private readonly IEnrollmentService _enrollmentService;
         private readonly ISharedIdentityService _sharedIdentityService;
-        public CourseContentService(IUow uow, ICourseContentRepository courseContentRepository, IMapper mapper, IValidator<CourseContentCreateDto> courseContentCreateDtoValidator, IValidator<CourseContentUpdateDto> courseContentUpdateDtoValidator, IHostingEnvironment hostingEnvironment, IConfiguration configuration, IEnrollmentService enrollmentService, ISharedIdentityService sharedIdentityService)
+        private readonly ILogger<CourseContentService> _logger;
+        public CourseContentService(IUow uow, ICourseContentRepository courseContentRepository, IMapper mapper, IValidator<CourseContentCreateDto> courseContentCreateDtoValidator, IValidator<CourseContentUpdateDto> courseContentUpdateDtoValidator, IHostingEnvironment hostingEnvironment, IConfiguration configuration, IEnrollmentService enrollmentService, ISharedIdentityService sharedIdentityService, ILogger<CourseContentService> logger)
         {
             _uow = uow;
             _courseContentRepository = courseContentRepository;
@@ -36,6 +38,7 @@ namespace EducationPortalApp.Business.Services.Concrete
             _configuration = configuration;
             _enrollmentService = enrollmentService;
             _sharedIdentityService = sharedIdentityService;
+            _logger = logger;
         }
 
         public async Task<CustomResponse<IEnumerable<CourseContentDto>>> GetAllCourseContentAsync()
@@ -48,7 +51,10 @@ namespace EducationPortalApp.Business.Services.Concrete
         {
             var enrollmentResult = await _enrollmentService.GetEnrollmentByUserIdAndCourseIdAsync((int)_sharedIdentityService.GetUserId, courseId);
             if (enrollmentResult.Data is null)
+            {
+                _logger.LogWarning("GetAllCourseContentByCourseId: User is not enrolled in course with courseId: {courseId}", courseId);
                 return CustomResponse<IEnumerable<CourseContentDto>>.Fail(CourseContentMessages.NOT_ENROLLED_IN_COURSE, ResponseStatusCode.BAD_REQUEST);
+            }
 
             IEnumerable<CourseContentDto> courseContentDtos = _mapper.Map<IEnumerable<CourseContentDto>>(await _courseContentRepository.GetAllFilterAsync(x => x.CourseId == courseId));
             return CustomResponse<IEnumerable<CourseContentDto>>.Success(courseContentDtos, ResponseStatusCode.OK);
@@ -62,15 +68,18 @@ namespace EducationPortalApp.Business.Services.Concrete
                 return CustomResponse<CourseContentDto>.Success(courseContentDto, ResponseStatusCode.OK);
 
             }
+            _logger.LogWarning("GetByIdCourseContent: CourseContent not found with courseContentId: {courseContentId}", courseContentId);
             return CustomResponse<CourseContentDto>.Fail(CourseContentMessages.NOT_FOUND_COURSE_CONTENT, ResponseStatusCode.NOT_FOUND);
         }
 
         public async Task<CustomResponse<NoContent>> InsertCourseContentAsync(CourseContentCreateDto courseContentCreateDto, CancellationToken cancellationToken)
         {
+            _logger.LogDebug("InsertCourseContentInput: {@courseContentCreateDto}", courseContentCreateDto);
             var validationResult = _courseContentCreateDtoValidator.Validate(courseContentCreateDto);
             if (validationResult.IsValid)
             {
                 CourseContent courseContent = _mapper.Map<CourseContent>(courseContentCreateDto);
+                _logger.LogDebug("InsertCourseContentEntity: {@courseContent}", courseContent);
                 if (courseContentCreateDto.File != null && courseContentCreateDto.File.Length > 0)
                 {
                     string createdFileName = await CourseContentFileUploadHelper.Run(_hostingEnvironment, courseContentCreateDto.File, _configuration, cancellationToken);
@@ -79,8 +88,10 @@ namespace EducationPortalApp.Business.Services.Concrete
 
                 await _uow.GetRepository<CourseContent>().InsertAsync(courseContent);
                 await _uow.SaveChangesAsync();
+                _logger.LogInformation("InsertCourseContent: CourseContent successfully inserted with Id: {courseContentId}", courseContent.Id);
                 return CustomResponse<NoContent>.Success(ResponseStatusCode.OK);
             }
+            _logger.LogError("CourseContent creation failed due to validation errors: {errors}", validationResult.Errors);
             return CustomResponse<NoContent>.Fail(validationResult.Errors.Select(x => x.ErrorMessage).ToList(), ResponseStatusCode.BAD_REQUEST);
         }
 
@@ -97,21 +108,28 @@ namespace EducationPortalApp.Business.Services.Concrete
 
                 _uow.GetRepository<CourseContent>().Delete(courseContent);
                 await _uow.SaveChangesAsync();
+                _logger.LogInformation("RemoveCourseContent: Course content with Id {courseContentId} has been successfully deleted.", courseContentId);
                 return CustomResponse<NoContent>.Success(ResponseStatusCode.OK);
             }
+            _logger.LogWarning("GetByIdCourseContent: CourseContent not found with courseContentId: {courseContentId}", courseContentId);
             return CustomResponse<NoContent>.Fail(CourseContentMessages.NOT_FOUND_COURSE_CONTENT, ResponseStatusCode.NOT_FOUND);
         }
 
         public async Task<CustomResponse<NoContent>> UpdateCourseContentAsync(CourseContentUpdateDto courseContentUpdateDto, CancellationToken cancellationToken)
         {
+            _logger.LogDebug("UpdateCourseContentInput: {@courseContentUpdateDto}", courseContentUpdateDto);
             var validationResult = _courseContentUpdateDtoValidator.Validate(courseContentUpdateDto);
             if (validationResult.IsValid)
             {
                 CourseContent oldData = await _uow.GetRepository<CourseContent>().AsNoTrackingGetByFilterAsync(x => x.Id == courseContentUpdateDto.Id);
                 if (oldData == null)
+                {
+                    _logger.LogWarning("UpdateCourseContent: CourseContent not found with courseContentId: {courseContentId}", courseContentUpdateDto.Id);
                     return CustomResponse<NoContent>.Fail(CourseContentMessages.NOT_FOUND_COURSE_CONTENT, ResponseStatusCode.NOT_FOUND);
+                }
 
                 CourseContent courseContent = _mapper.Map<CourseContent>(courseContentUpdateDto);
+                _logger.LogDebug("UpdateCourseContentEntity: {@courseContent}", courseContent);
                 if (courseContentUpdateDto.File != null && courseContentUpdateDto.File.Length > 0)
                 {
                     string createdFileName = await CourseContentFileUploadHelper.Run(_hostingEnvironment, courseContentUpdateDto.File, _configuration, cancellationToken);
@@ -124,8 +142,10 @@ namespace EducationPortalApp.Business.Services.Concrete
 
                 _uow.GetRepository<CourseContent>().Update(courseContent);
                 await _uow.SaveChangesAsync();
+                _logger.LogInformation("UpdateCourseContent: Course successfully updated with Id: {courseContentId}", courseContent.Id);
                 return CustomResponse<NoContent>.Success(ResponseStatusCode.OK);
             }
+            _logger.LogError("CourseContent update failed due to validation errors: {errors}", validationResult.Errors);
             return CustomResponse<NoContent>.Fail(validationResult.Errors.Select(x => x.ErrorMessage).ToList(), ResponseStatusCode.BAD_REQUEST);
         }
 
@@ -153,6 +173,7 @@ namespace EducationPortalApp.Business.Services.Concrete
             }
 
             await _uow.SaveChangesAsync();
+            _logger.LogInformation("UpdateCourseContentStatus: Course content status updated successfully for courseContentId: {courseContentId}, isChecked: {isChecked}", courseContentId, isChecked);
             return CustomResponse<NoContent>.Success(ResponseStatusCode.OK);
         }
     }

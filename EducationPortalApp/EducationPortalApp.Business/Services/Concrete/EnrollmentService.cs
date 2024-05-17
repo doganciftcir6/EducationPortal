@@ -9,6 +9,7 @@ using EducationPortalApp.Entities.EnrollmentEntities;
 using EducationPortalApp.Shared.Services;
 using EducationPortalApp.Shared.Utilities.Response;
 using FluentValidation;
+using Microsoft.Extensions.Logging;
 
 namespace EducationPortalApp.Business.Services.Concrete
 {
@@ -21,7 +22,8 @@ namespace EducationPortalApp.Business.Services.Concrete
         private readonly ISharedIdentityService _sharedIdentityService;
         private readonly ICourseService _courseService;
         private readonly IEnrollmentRequestService _enrollmentRequestService;
-        public EnrollmentService(IUow uow, IEnrollmentRepository enrollmenRepository, IMapper mapper, IValidator<EnrollmentCreateDto> enrollmentCreateDtoValidator, ISharedIdentityService sharedIdentityService, ICourseService courseService, IEnrollmentRequestService enrollmentRequestService)
+        private readonly ILogger<EnrollmentService> _logger;
+        public EnrollmentService(IUow uow, IEnrollmentRepository enrollmenRepository, IMapper mapper, IValidator<EnrollmentCreateDto> enrollmentCreateDtoValidator, ISharedIdentityService sharedIdentityService, ICourseService courseService, IEnrollmentRequestService enrollmentRequestService, ILogger<EnrollmentService> logger)
         {
             _uow = uow;
             _enrollmenRepository = enrollmenRepository;
@@ -30,6 +32,7 @@ namespace EducationPortalApp.Business.Services.Concrete
             _sharedIdentityService = sharedIdentityService;
             _courseService = courseService;
             _enrollmentRequestService = enrollmentRequestService;
+            _logger = logger;
         }
 
         public async Task<CustomResponse<IEnumerable<EnrollmentDto>>> GetAllEnrollmentAsync()
@@ -52,25 +55,35 @@ namespace EducationPortalApp.Business.Services.Concrete
 
         public async Task<CustomResponse<NoContent>> InsertEnrollmentAsync(EnrollmentCreateDto enrollmentCreateDto, int enrollmentRequestId)
         {
+            _logger.LogDebug("InsertEnrollmentInput: {@enrollmentCreateDto} and enrollmentRequestId: {enrollmentRequestId}", enrollmentCreateDto, enrollmentRequestId);
             var enrollments = await _uow.GetRepository<Enrollment>().GetAllFilterAsync(x => x.AppUserId == enrollmentCreateDto.AppUserId && x.CourseId == enrollmentCreateDto.CourseId);
             if (enrollments.Any())
+            {
+                _logger.LogWarning("InsertEnrollment: User is already enrolled in the course with courseId: {courseId}", enrollmentCreateDto.CourseId);
                 return CustomResponse<NoContent>.Fail(EnrollmentMessages.ALREADY_ENROLLED_ERROR, ResponseStatusCode.BAD_REQUEST);
+            }
 
             var validationResult = _enrollmentCreateDtoValidator.Validate(enrollmentCreateDto);
             if (validationResult.IsValid)
             {
                 Enrollment enrollment = _mapper.Map<Enrollment>(enrollmentCreateDto);
+                _logger.LogDebug("InsertEnrollmentEntity: {@enrollment}", enrollment);
                 await _uow.GetRepository<Enrollment>().InsertAsync(enrollment);
                 //Kapasite arttır
                 var increaseCourseCapacityResponse = await _courseService.IncreaseCourseCapacityAsync(enrollment.CourseId);
                 if (increaseCourseCapacityResponse.Errors != null)
+                {
+                    _logger.LogError("InsertEnrollment: Failed to increase course capacity for courseId: {courseId}. Error: {errors}", enrollment.CourseId, increaseCourseCapacityResponse.Errors);
                     return CustomResponse<NoContent>.Fail(increaseCourseCapacityResponse.Errors, ResponseStatusCode.BAD_REQUEST);
+                }
 
                 //İlgili enrollment requesti sil artık sonuç geldi
                 await _enrollmentRequestService.RemoveEnrollmentRequestAsync(enrollmentRequestId);
                 await _uow.SaveChangesAsync();
+                _logger.LogInformation("InsertEnrollment: Enrollment successfully inserted for user with userId: {userId} and courseId: {courseId}", enrollmentCreateDto.AppUserId, enrollmentCreateDto.CourseId);
                 return CustomResponse<NoContent>.Success(ResponseStatusCode.OK);
             }
+            _logger.LogError("Enrollment creation failed due to validation errors: {errors}", validationResult.Errors);
             return CustomResponse<NoContent>.Fail(validationResult.Errors.Select(x => x.ErrorMessage).ToList(), ResponseStatusCode.BAD_REQUEST);
         }
 
@@ -84,13 +97,18 @@ namespace EducationPortalApp.Business.Services.Concrete
                 //Kapasite azalt
                 var decreaseCoruseCapacityResponse = await _courseService.DecreaseCourseCapacityAsync(enrollment.CourseId);
                 if (decreaseCoruseCapacityResponse.Errors != null)
+                {
+                    _logger.LogError("RemoveEnrollment: Failed to decrease course capacity for courseId: {courseId}. Error: {errors}", enrollment.CourseId, decreaseCoruseCapacityResponse.Errors);
                     return CustomResponse<NoContent>.Fail(decreaseCoruseCapacityResponse.Errors, ResponseStatusCode.BAD_REQUEST);
+                }
                 //İlgili enrollment requesti sil artık sonuç geldi
 
                 await _enrollmentRequestService.RemoveEnrollmentRequestAsync(enrollmentRequestId);
                 await _uow.SaveChangesAsync();
+                _logger.LogInformation("RemoveEnrollment: Enrollment successfully removed for user with userId: {userId} from course with courseId: {courseId}", appUserId, courseId);
                 return CustomResponse<NoContent>.Success(ResponseStatusCode.OK);
             }
+            _logger.LogWarning("RemoveEnrollment: User with userId: {userId} is not enrolled in course with courseId: {courseId}", appUserId, courseId);
             return CustomResponse<NoContent>.Fail(EnrollmentMessages.USER_NOT_ENROLLED_ERROR, ResponseStatusCode.NOT_FOUND);
         }
 
@@ -101,13 +119,14 @@ namespace EducationPortalApp.Business.Services.Concrete
 
             if (courseContentStatuses == null || enrollment == null)
             {
+                _logger.LogWarning("UpdateEnrollmentCompletionStatus: Unable to update completion status. Course content statuses or enrollment not found for courseContentId: {courseContentId} and courseId: {courseId}", courseContentId, courseId);
                 return false;
             }
 
             //Tüm kurs içeriği işaretlenmiş mi kontrol et
             bool allChecked = courseContentStatuses.All(cc => cc.IsCompleted);
 
-            //Eğer tüm kurs içeriği işaretlenmişse, IsCompleted alanını true olarak güncelle
+            //Eğer tüm kurs içeriği işaretlenmişse IsCompleted alanını true olarak güncelle
             if (allChecked)
             {
                 enrollment.IsCompleted = true;
@@ -117,6 +136,7 @@ namespace EducationPortalApp.Business.Services.Concrete
                 enrollment.IsCompleted = false;
             }
             await _uow.SaveChangesAsync();
+            _logger.LogInformation("UpdateEnrollmentCompletionStatus: Enrollment completion status updated successfully for courseContentId: {courseContentId} and courseId: {courseId}. IsCompleted: {isCompleted}", courseContentId, courseId, enrollment.IsCompleted);
 
             return true;
         }

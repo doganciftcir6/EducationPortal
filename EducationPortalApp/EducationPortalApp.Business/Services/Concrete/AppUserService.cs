@@ -9,6 +9,7 @@ using EducationPortalApp.Shared.Utilities.Response;
 using FluentValidation;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace EducationPortalApp.Business.Services.Concrete
 {
@@ -21,7 +22,8 @@ namespace EducationPortalApp.Business.Services.Concrete
         private readonly IValidator<AppUserChangePasswordDto> _changePasswordValidator;
         private readonly IValidator<RoleAssingSendDto> _roleAssingSendDto;
         private readonly IEnrollmentService _enrollmentService;
-        public AppUserService(UserManager<AppUser> userManager, RoleManager<AppRole> roleManager, ISharedIdentityService sharedIdentityService, IMapper mapper, IValidator<AppUserChangePasswordDto> changePasswordValidator, IValidator<RoleAssingSendDto> roleAssingSendDto, IEnrollmentService enrollmentService)
+        private readonly ILogger<AppUserService> _logger;
+        public AppUserService(UserManager<AppUser> userManager, RoleManager<AppRole> roleManager, ISharedIdentityService sharedIdentityService, IMapper mapper, IValidator<AppUserChangePasswordDto> changePasswordValidator, IValidator<RoleAssingSendDto> roleAssingSendDto, IEnrollmentService enrollmentService, ILogger<AppUserService> logger)
         {
             _userManager = userManager;
             _roleManager = roleManager;
@@ -30,6 +32,7 @@ namespace EducationPortalApp.Business.Services.Concrete
             _changePasswordValidator = changePasswordValidator;
             _roleAssingSendDto = roleAssingSendDto;
             _enrollmentService = enrollmentService;
+            _logger = logger;
         }
 
         public async Task<CustomResponse<NoContent>> AssingRoleAsync(RoleAssingSendDto roleAssingSendDto)
@@ -42,7 +45,10 @@ namespace EducationPortalApp.Business.Services.Concrete
                 {
                     var currentRole = await _roleManager.FindByNameAsync(roleAssingSendDto.RoleName);
                     if (currentRole == null)
+                    {
+                        _logger.LogError("AssingRole: Role {roleName} not found.", roleAssingSendDto.RoleName);
                         return CustomResponse<NoContent>.Fail(AppUserMessages.NOT_FOUND_ROLE, ResponseStatusCode.NOT_FOUND);
+                    }
 
                     var userRoles = await _userManager.GetRolesAsync(currentUser);
                     if (userRoles.Count != 0)
@@ -52,10 +58,13 @@ namespace EducationPortalApp.Business.Services.Concrete
                     }
                     await _userManager.AddToRoleAsync(currentUser, roleAssingSendDto.RoleName);
 
+                    _logger.LogInformation("AssingRole: Role {roleName} assigned to user {userId}.", roleAssingSendDto.RoleName, roleAssingSendDto.UserId);
                     return CustomResponse<NoContent>.Success(ResponseStatusCode.OK);
                 }
+                _logger.LogError("AssingRole: User with ID {userId} not found.", roleAssingSendDto.UserId);
                 return CustomResponse<NoContent>.Fail(AppUserMessages.NOT_FOUND_USER, ResponseStatusCode.NOT_FOUND);
             }
+            _logger.LogError("AssingRole: Role assignment failed due to validation errors: {errors}", validationResult.Errors);
             return CustomResponse<NoContent>.Fail(validationResult.Errors.Select(x => x.ErrorMessage).ToList(), ResponseStatusCode.BAD_REQUEST);
         }
 
@@ -71,12 +80,16 @@ namespace EducationPortalApp.Business.Services.Concrete
                     if (checkPassword)
                     {
                         await _userManager.ChangePasswordAsync(currentUser, appUserChangePassword.CurrentPassword, appUserChangePassword.NewPassword);
+                        _logger.LogInformation("ChangePassword: Password changed successfully for user {userId}.", _sharedIdentityService.GetUserId);
                         return CustomResponse<NoContent>.Success(ResponseStatusCode.OK);
                     }
+                    _logger.LogError("ChangePassword: Current password is incorrect for user {userId}.", _sharedIdentityService.GetUserId);
                     return CustomResponse<NoContent>.Fail(AppUserMessages.WRONG_CURRENT_PASSWORD, ResponseStatusCode.BAD_REQUEST);
                 }
+                _logger.LogError("ChangePassword: User not found.");
                 return CustomResponse<NoContent>.Fail(AppUserMessages.NOT_FOUND_USER, ResponseStatusCode.NOT_FOUND);
             }
+            _logger.LogError("ChangePassword: Password change failed due to validation errors: {errors}", validationResult.Errors);
             return CustomResponse<NoContent>.Fail(validationResult.Errors.Select(x => x.ErrorMessage).ToList(), ResponseStatusCode.BAD_REQUEST);
         }
 
@@ -95,6 +108,7 @@ namespace EducationPortalApp.Business.Services.Concrete
                                                    .FirstOrDefaultAsync(u => u.Id == userId);
             if (userInfo == null)
             {
+                _logger.LogError("GetProfile: User not found.");
                 return CustomResponse<ProfileDto>.Fail(AppUserMessages.NOT_FOUND_USER, ResponseStatusCode.NOT_FOUND);
             }
 
@@ -131,6 +145,7 @@ namespace EducationPortalApp.Business.Services.Concrete
                 }
                 return CustomResponse<List<RoleDto>>.Success(roleAssingDtos, ResponseStatusCode.OK);
             }
+            _logger.LogError("GetRoles: User not found with ID {userId}.", userId);
             return CustomResponse<List<RoleDto>>.Fail(AppUserMessages.NOT_FOUND_USER, ResponseStatusCode.NOT_FOUND);
         }
     }
