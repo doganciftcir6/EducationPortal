@@ -1,0 +1,62 @@
+﻿@using System.Text.Json;
+@model CourseContentUpdateInput
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="card-title mb-0">Update Course Content</h5>
+                </div>
+                <div asp-validation-summary="All"></div>
+                <div class="card-body">
+                    <form asp-controller="AdminCourseContent" asp-action="UpdateCourseContent" method="post" enctype="multipart/form-data">
+                        <input type="hidden" asp-for="@Model.CourseId" />
+                        <input type="hidden" asp-for="@Model.Id" />
+
+                        @{
+                            TempData["contentTypes"] = JsonSerializer.Serialize(Model.CourseContentTypes);
+                        }
+                        <div class="form-group">
+                            <label for="contentName">Content Name</label>
+                            <input asp-for="@Model.Name" type="text" id="contentName" class="form-control" />
+                            <span asp-validation-for="@Model.Name" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contentType">Content Type</label>
+                            <select asp-items="@Model.CourseContentTypes" asp-for="@Model.CourseContentTypeId" id="contentType" class="form-control">
+                                <option value="">-- Select Content Type --</option>
+                            </select>
+                            <span asp-validation-for="@Model.CourseContentTypeId" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="file">Content File</label>
+                            <div class="custom-file">
+                                <input asp-for="@Model.File" type="file" class="form-control" id="file" onchange="updateFileName()">
+                                <label class="custom-file-label" for="file">Choose file</label>
+                            </div>
+                            <span asp-validation-for="@Model.File" class="text-danger"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block mt-3">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function updateFileName() {
+        var input = document.getElementById('file');
+        var label = input.nextElementSibling;
+        var fileName = input.files[0].name;
+        label.innerText = fileName;
+    }
+</script>

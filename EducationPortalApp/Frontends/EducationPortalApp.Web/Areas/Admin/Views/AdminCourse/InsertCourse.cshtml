@@ -55,18 +55,18 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="categoryCategory">Category</label>
-                            <select asp-items="@Model.Categories" asp-for="@Model.CategoryId" id="categoryCategory" class="form-control">
+                            <label for="category">Category</label>
+                            <select asp-items="@Model.Categories" asp-for="@Model.CategoryId" id="category" class="form-control">
                                 <option value="">-- Select Category --</option>
                             </select>
                             <span asp-validation-for="@Model.CategoryId" class="text-danger"></span>
                         </div>
 
                         <div class="form-group">
-                            <label for="categoryPicture">Picture</label>
+                            <label for="picture">Picture</label>
                             <div class="custom-file">
-                                <input asp-for="@Model.Picture" type="file" class="form-control" id="categoryPicture" onchange="updateFileName()">
-                                <label class="custom-file-label" for="categoryPicture">Choose file</label>
+                                <input asp-for="@Model.Picture" type="file" class="form-control" id="picture" onchange="updateFileName()">
+                                <label class="custom-file-label" for="picture">Choose file</label>
                             </div>
                             <span asp-validation-for="@Model.Picture" class="text-danger"></span>
                         </div>
@@ -81,7 +81,7 @@
 
 <script>
     function updateFileName() {
-        var input = document.getElementById('categoryPicture');
+        var input = document.getElementById('picture');
         var label = input.nextElementSibling;
         var fileName = input.files[0].name;
         label.innerText = fileName;

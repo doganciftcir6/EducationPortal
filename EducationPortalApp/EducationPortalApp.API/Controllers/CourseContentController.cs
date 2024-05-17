@@ -8,6 +8,7 @@ namespace EducationPortalApp.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class CourseContentController : CustomBaseController
     {
         private readonly ICourseContentService _courseContentService;
@@ -19,10 +20,21 @@ namespace EducationPortalApp.API.Controllers
         }
 
         [HttpGet("[action]/{courseId}")]
-        [Authorize]
-        public async Task<IActionResult> GetAllCourseContent(int courseId)
+        public async Task<IActionResult> GetAllCourseContentByCourseId(int courseId)
         {
             return CreateActionResultInstance(await _courseContentService.GetAllCourseContentByCourseIdAsync(courseId));
+        }
+
+        [HttpGet("[action]")]
+        public async Task<IActionResult> GetAllCourseContent()
+        {
+            return CreateActionResultInstance(await _courseContentService.GetAllCourseContentAsync());
+        }
+
+        [HttpGet("[action]/{courseContentId}")]
+        public async Task<IActionResult> GetCourseContent(int courseContentId)
+        {
+            return CreateActionResultInstance(await _courseContentService.GetByIdCourseContentAsync(courseContentId));
         }
 
         [HttpPost("[action]")]
@@ -44,7 +56,6 @@ namespace EducationPortalApp.API.Controllers
         }
 
         [HttpPatch("[action]/{courseContentId}")]
-        [Authorize]
         public async Task<IActionResult> UpdateCourseContentStatus(int courseContentId, [FromBody] bool isChecked)
         {
             var result = await _courseContentService.UpdateCourseContentStatusAsync(courseContentId, isChecked);

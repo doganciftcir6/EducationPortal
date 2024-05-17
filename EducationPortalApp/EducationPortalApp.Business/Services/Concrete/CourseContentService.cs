@@ -38,6 +38,12 @@ namespace EducationPortalApp.Business.Services.Concrete
             _sharedIdentityService = sharedIdentityService;
         }
 
+        public async Task<CustomResponse<IEnumerable<CourseContentDto>>> GetAllCourseContentAsync()
+        {
+            IEnumerable<CourseContentDto> courseContentDtos = _mapper.Map<IEnumerable<CourseContentDto>>(await _courseContentRepository.GetAllAsync());
+            return CustomResponse<IEnumerable<CourseContentDto>>.Success(courseContentDtos, ResponseStatusCode.OK);
+        }
+
         public async Task<CustomResponse<IEnumerable<CourseContentDto>>> GetAllCourseContentByCourseIdAsync(int courseId)
         {
             var enrollmentResult = await _enrollmentService.GetEnrollmentByUserIdAndCourseIdAsync((int)_sharedIdentityService.GetUserId, courseId);
