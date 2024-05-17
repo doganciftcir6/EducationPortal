@@ -26,7 +26,8 @@ builder.Services.AddScoped<IEnrollmentRequestService, EnrollmentRequestService>(
 builder.Services.AddScoped<IEnrollmentService, EnrollmentService>();
 builder.Services.AddScoped<ICourseContentService, CourseContentService>();
 builder.Services.AddScoped<IUserCourseContentStatusService, UserCourseContentStatusService>();
-builder.Services.AddScoped<ICategoryService, CategoryService>();    
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<ICourseContentTypeService, CourseContentTypeService>();
 
 //Auth - Cookie Based
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddCookie(JwtBearerDefaults.AuthenticationScheme, opt =>
