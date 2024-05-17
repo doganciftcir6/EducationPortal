@@ -1,4 +1,4 @@
-# eShopOnWebApp
+# EducationPortalApp
 # Fullstack Eğitim Portalı Uygulaması
 
 Bu proje, Asp.Net 8.0 kullanılarak geliştirilmiş bir fullstack eğitim portalı uygulamasıdır. Uygulama, ayrı bir API tarafı ve bu API'ın sunduğu endpointleri tüketen bir frontend içermektedir.
